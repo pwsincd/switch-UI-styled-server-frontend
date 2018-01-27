@@ -1,0 +1,47 @@
+<!--switchbru DNS template by pwsincd-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="nav" id="nav" onclick="populateData(this.id)">
+		<p><i id="icon" class="fab fa-hubspot"></i>  Switchbru DNS</p>
+		<div class="time">
+			<span id="time"></span>
+		</div>
+	</div>
+	<div class="container">
+		<hr>
+		<div class="menu">
+			<div class="outer">
+				<div class="inner" id="one" onclick="populateData(this.id)"><i class="fab fa-google"></i>&nbsp;&nbsp;Google	
+				</div>				
+			</div>
+			<div class="outer">
+				<div class="inner" id="two" onclick="populateData(this.id)"><i class="fas fa-keyboard"></i>&nbsp;&nbsp;Enter URL					
+				</div>				
+			</div>
+			<div class="outer">
+				<div class="inner" id="three" onclick="populateData(this.id)"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Usage Survey					
+				</div>				
+			</div>
+			<div class="outer">
+				<div class="inner" id="four" onclick="populateData(this.id)"><i class="fab fa-youtube-square"></i>&nbsp;&nbsp;Youtube			
+				</div>			
+			</div>
+			<div class="outer">
+				<div class="inner" id="five" onclick="populateData(this.id)"><i class="fas fa-link"></i>&nbsp;&nbsp;Useful Links			
+				</div>		
+			</div>
+		</div>
+		<div class="main" id="content">
+		</div>
+	</div>
+	<script src="js/dns.js"></script>
+</body>
+</html>

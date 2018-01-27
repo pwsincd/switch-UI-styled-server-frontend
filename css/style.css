@@ -1,0 +1,242 @@
+	/*switch style css for switchbru by pwsincd*/
+	/*Global style variable change these to change the whole theme*/
+	/*many items could be grouped but kept it simple to read*/
+	:root{
+		/* Dark Theme
+		--main-color:#2d2d2d;
+		--side-color:#323232;
+		--text-color:#fbfbfb;
+		--border-focus-color:#6dccea;
+		--text-focus-color:#0cb28e;
+		--focus-background:black;
+		Light Theme */
+		--main-color:#e2dfdf;
+		--side-color:#ebebeb;
+		--text-color:#2d2c2c;
+		--border-focus-color:#6dccea;
+		--text-focus-color:blue;
+		--focus-background:white;
+		--container-height:530px; /*530px gamepad (overall size of content section minus nav dimensions*/
+		--body-height:610px; /*610px gamepad (overall size is 720px minus browser footer dimensions)*/
+	}
+	/*Nintendo switch font not required*/
+	@font-face {
+		font-family: nintyfont;
+		src: url('fonts/nintyfont.ttf');
+	}
+	body{
+		color: var(--text-color);
+		background-color: var(--main-color);
+		height: var(--body-height);
+	}
+	hr{
+		width:95%;
+		color: var(--text-color);
+	}
+	a {
+		color: var(--text-focus-color);
+		text-decoration: inherit;
+	}
+	/*animation for plulsation border*/
+	@keyframes border-pulsate {
+		0%   { border-color: rgba(0, 255, 255, 0.5); }
+		50% { border-color: rgba(0, 255, 255, 1); }
+		100%   { border-color: rgba(0, 255, 255, 0.5); }
+	}
+	/*menu item parent div*/
+	.outer{
+		-webkit-box-sizing: border-box;
+		padding-left: 2%;
+		width:90%;
+		height:12%;
+		display: flex;
+		align-items: center;
+		border-style:solid;
+		border-width: 3px;
+		border-color: var(--side-color);
+		cursor: pointer;
+	}
+	.outer:hover{
+		border-color: var(--border-focus-color);
+		color:var(--text-focus-color);
+		background-color: var(--focus-background);
+		-webkit-transition-timing-function: ease-in-out;
+		transition-timing-function: ease-in-out;
+		transition: 0.5s;
+		animation: border-pulsate 1.5s infinite;
+	}
+	/*menu item inner div*/
+	.inner{
+		padding-left: 2%;
+		color:var(--text-color);
+		-webkit-box-sizing: border-box;
+		height:80%;
+		width:95%;
+		display: flex;
+		align-items: center;
+		border-left-style: solid;
+		border-left-width: 3px;
+		border-left-color: var(--side-color);
+	}
+	.inner:hover{
+		border-left-color: var(--text-focus-color);
+		color:var(--text-focus-color);
+	}
+	.inner-active{
+		border-left-color: var(--text-focus-color);
+		color:var(--text-focus-color);	
+	}
+	/*main body of page*/
+	.container {
+		margin-top:12%;
+		width: 100%;
+		height: var(--container-height);
+		margin: auto;
+	}
+	/*header css*/
+	.nav{
+		-webkit-box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-left:8%;
+		padding-right:8%;
+		background-color: var(--main-color);
+		width:100%;
+		height:12%;
+		font-size: 1.9em;
+		cursor: pointer;
+	}
+	#nav:hover #icon{
+		color:var(--text-focus-color);
+	}
+	/*left side menu parent*/
+	.menu{
+		font-family: nintyfont;
+		-webkit-box-sizing: border-box;
+		padding-left: 7%;
+		padding-top: 1%;
+		padding-bottom: 1%;
+		background-color: var(--side-color);
+		float: left;           
+		height:100%;
+		width:32%;
+		font-size: 1.3em;
+	}
+	/*right side content parent*/
+	.main{
+		-webkit-box-sizing: border-box;
+		padding-left: 8%;
+		padding-right: 8%;
+		padding-top: 2%;
+		padding-bottom: 1%;
+		background-color: var(--main-color);
+		margin-left:30%;
+		height:100%;
+		width:68%;
+		font-size: 1.3em;
+	}	
+	/*google image sizing % positioning*/
+	.google{
+		text-align:center;
+	}
+	.google-rs{
+		text-align: center;
+		width:40%;
+		height:10%;
+	}
+	.googlesearch{
+	border:1px solid black;
+	padding:4px;
+	width:20em;
+	}
+	/*webkit image sizing and positioning*/
+	.webkit {
+		text-align: center;
+		width:20%;
+		height:10%;		
+	}
+	/*you tube sizing and styling*/
+	.youtube {
+		font-size: 0.9em;
+		text-align:left;
+	}
+	.ytimg {
+		text-align: center;
+		width:10%;
+		height:10%;
+	}
+	/*useful links flex-box control*/
+	.flex {
+		display: flex;
+  		flex-wrap: wrap;
+	}
+	.link {
+		background-color: var(--side-color);
+		width: 30%;
+		margin: 5px;
+		text-align: center;
+		line-height: 50px;
+		font-size: 0.9em;
+		border-style:solid;
+		border-width: 3px;
+		border-color: var(--side-color);
+		cursor: pointer;
+	}
+	.link:hover {
+		border-color: var(--border-focus-color);
+		color:var(--text-focus-color);
+		background-color: var(--focus-background);
+		-webkit-transition-timing-function: ease-in-out;
+		transition-timing-function: ease-in-out;
+		transition: 0.5s;
+		animation: border-pulsate 1.5s infinite;
+	}
+	/*text entry and submit button styling*/
+	input[type=text],input[type=url], select {
+		font-size: 1.3em;
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		box-sizing: border-box;
+		border-style:solid;
+		border-width: 3px;
+		border-color: var(--side-color);
+		background-color: var(--main-color);
+		color: var(--text-color);
+	}
+	input[type=text]:focus,
+	input[type=text]:hover,
+	input[type=url]:focus,
+	input[type=url]:hover{
+		outline: none;
+		border-color: var(--border-focus-color);
+		color:var(--text-focus-color);
+		background-color: var(--focus-background);
+		-webkit-transition-timing-function: ease-in-out;
+		transition-timing-function: ease-in-out;
+		transition: 0.5s;
+		animation: border-pulsate 1.5s infinite;
+	}
+	input[type=submit] {
+		font-size: 1.3em;
+		width: 100%;
+		background-color: var(--main-color);
+		color: var(--text-color);
+		padding: 14px 20px;
+		margin: 8px 0;
+		cursor: pointer;
+		border-style:solid;
+		border-width: 3px;
+		border-color: var(--side-color);
+	}
+	input[type=submit]:hover {
+		border-color: var(--border-focus-color);
+		color:var(--text-focus-color);
+		background-color: var(--focus-background);
+		-webkit-transition-timing-function: ease-in-out;
+		transition-timing-function: ease-in-out;
+		transition: 0.5s;
+		animation: border-pulsate 1.5s infinite;
+	}

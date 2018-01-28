@@ -34,6 +34,10 @@
 		color: var(--text-focus-color);
 		text-decoration: inherit;
 	}
+	hr {
+		width: 95%;
+		color:var(--text-color);
+	}
 	/*animation for plulsation border*/
 	@keyframes border-pulsate {
 		0%   { border-color: rgba(0, 255, 255, 0.5); }

@@ -88,86 +88,15 @@ Using our page isn't necessary, but you do need a way to get this link to the "S
 				}
 				case 'five':{
 					htmlContent = `<div class="flex">
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
-					<div class="link">link</div>
+					<div class="link"><a href="https://realdekkia.github.io/switch-tetris/">Tetris</a></div>
+					<div class="link"><a href="http://switchboard.cool/">Switchboard</a></div>
+					<div class="link"><a href="http://fights.today/">fights.today</a></div>
+					<div class="link"><a href="https://html5test.com/">html5test</a></div>
+					<div class="link"><a href="https://pegaswitch.com/">Pegaswitch</a></div>
+					<div class="link"><a href="https://gbatemp.net/categories/nintendo-switch-discussions.282/">GBAtemp</a></div>
+					<div class="link"><a href=""></a>...</div>
+					<div class="link"><a href=""></a>...</div>
+					<div class="link"><a href=""></a>...</div>
 					</div>`;
 					break;
 				}
@@ -181,6 +110,16 @@ Using our page isn't necessary, but you do need a way to get this link to the "S
 					Find us at :<br><br><a href="https://discord.gg/y2ASN3K"><i class="fab fa-discord"></i>   https://discord.gg/y2ASN3K</a>
 					<span>  and  </span>
 					<a href="https://www.irccloud.com/irc/freenode:2/channel/switchbru"><i class="far fa-comments"></i>   IRCCLOUD</a>
+					</div>`;
+					break;
+				}
+				case 'about':{
+					htmlContent = `<div><h2>About SwitchBru DNS server :</h2><br>
+					This service is provided free of charge with no warranty whatsoever. The service does not store or retain any personal data. Besides providing the Google redirect for the Nintendo Switch, all DNS queries are handled via <a href="https://developers.google.com/speed/public-dns/">Google DNS</a>.
+<br><br>
+As such this server <b>does not block firmware updates</b>. If you are looking to block updates, you should use <a href="https://reswitched.tech/info/faq">ReSwitched DNS</a>, or stay offline. If you are interested in us adding update blocking, leave feedback in the <a href="https://docs.google.com/forms/d/e/1FAIpQLSewt6insjUEzg0dWV--n5OlDodk2Zflr3pbd4XWs6hEuZTzNg/viewform">survey</a>.
+<br><br>
+Visit this page on a computer for more information about SwitchBru: <a href="http://switchbru.com/dns">http://switchbru.com/dns</a>
 					</div>`;
 					break;
 				}

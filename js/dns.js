@@ -1,12 +1,11 @@
-		//sidebar highlinhting
+		//Javascript to manipulate switchbru dns UI bu pwsincd
+		//
+		//sidebar highlighting
 		$('.inner').click(function(){
 			$('.inner').removeClass('inner-active');
 			$(this).addClass('inner-active');
 		});
-		$('.nav').click(function(){
-			$('.inner').removeClass('inner-active');
-		});
-		//set vars
+		//set variabless
 		var targetDiv = document.getElementById('content');
 		var htmlContent = '';
 		var intro = '<div><p><h2>Welcome to SwitchBru DNS.</h2><p><br>Redirecting to <a href="https://www.google.com/webhp?nomo=1&hl=en">Google</a> in <span id="count">5</span> seconds. <div><input type="submit" id="cancel" value="Cancel Redirection." onclick="populateData(this.id)" /></div></div>';
@@ -79,17 +78,98 @@ If you want to go back to the rest of the Internet, turn back on the custom DNS 
 					<div class="link">link</div>
 					<div class="link">link</div>
 					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
+					<div class="link">link</div>
 					</div>`;
 					break;
 				}
 				case 'cancel':{
-					htmlContent = `<div><p><h2>Welcome to SwitchBru DNS.</h2><p><br>Redirection to Google cancelled welcome to our DNS server. <div><input type="submit"  value="Continue to Google" onclick="google()" /></div></div>`;
+					htmlContent = `<div>
+					<p><h2>Welcome to SwitchBru DNS.</h2><p>
+					<br>Redirection to Google cancelled welcome to our DNS server. 
+					<div><input type="submit"  value="Continue to Google" onclick="google()" />
+					</div>
+					<br>
+					Find us at :<br><br><a href="https://discord.gg/y2ASN3K"><i class="fab fa-discord"></i>   https://discord.gg/y2ASN3K</a>
+					<span>  and  </span>
+					<a href="https://www.irccloud.com/irc/freenode:2/channel/switchbru"><i class="far fa-comments"></i>   IRCCLOUD</a>
+					</div>`;
 					break;
 				}
 			}
 			targetDiv.innerHTML = htmlContent;
 		};
-		// time
+		// time function
 		function checkTime(i) {
 			if (i < 10) {
 				i = "0" + i;

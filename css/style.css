@@ -10,28 +10,25 @@
 		--text-focus-color:#0cb28e;
 		--focus-background:black;
 		Light Theme */
-		--main-color:#e2dfdf;
-		--side-color:#ebebeb;
-		--text-color:#2d2c2c;
+		--main-color:#ebebeb;
+		--side-color:#efefef;
+		--text-color:#393939;
 		--border-focus-color:#6dccea;
 		--text-focus-color:blue;
-		--focus-background:white;
-		--container-height:530px; /*530px gamepad (overall size of content section minus nav dimensions*/
-		--body-height:610px; /*610px gamepad (overall size is 720px minus browser footer dimensions)*/
+		--focus-background:#fdfdfd;
 	}
-	/*Nintendo switch font not required*/
-	@font-face {
-		font-family: nintyfont;
-		src: url('fonts/nintyfont.ttf');
+	* {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	html,
+	body {
+		padding: 0;
+		margin: 0;
 	}
 	body{
 		color: var(--text-color);
 		background-color: var(--main-color);
-		height: var(--body-height);
-	}
-	hr{
-		width:95%;
-		color: var(--text-color);
 	}
 	a {
 		color: var(--text-focus-color);
@@ -48,7 +45,7 @@
 		-webkit-box-sizing: border-box;
 		padding-left: 2%;
 		width:90%;
-		height:12%;
+		height:70px;
 		display: flex;
 		align-items: center;
 		border-style:solid;
@@ -88,39 +85,67 @@
 	}
 	/*main body of page*/
 	.container {
-		margin-top:12%;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		overflow: hidden;
+		height: 100vh;
+		margin-top: -100px;
+		padding-top: 100px;
+		position: relative;
 		width: 100%;
-		height: var(--container-height);
-		margin: auto;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		will-change: overflow;
 	}
 	/*header css*/
 	.nav{
-		-webkit-box-sizing: border-box;
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		padding-left:8%;
-		padding-right:8%;
+		position: relative;
+		z-index: 10;
+		width:95%;
+		height: 100px;
+		padding-left:5%;
+		padding-right:5%;
 		background-color: var(--main-color);
-		width:100%;
-		height:12%;
 		font-size: 1.9em;
 		cursor: pointer;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-bottom-color: var(--text-color);
+		margin-left: 2.5%;
 	}
 	#nav:hover #icon{
 		color:var(--text-focus-color);
 	}
+	.time {
+		display: flex;
+		height:100px;
+		z-index: 10;
+		position: absolute;
+		float:  right;
+		right: 0;  
+		top: 0;
+		align-items: center;
+		padding-right:5%;
+	}
 	/*left side menu parent*/
+	.menu,
+	.middle,
+	.main {
+		overflow: auto;
+		height: auto;
+		padding: .5rem;
+		-webkit-overflow-scrolling: touch;
+	}
 	.menu{
-		font-family: nintyfont;
 		-webkit-box-sizing: border-box;
 		padding-left: 7%;
 		padding-top: 1%;
 		padding-bottom: 1%;
-		background-color: var(--side-color);
-		float: left;           
-		height:100%;
-		width:32%;
+		background-color: var(--side-color);         
+		width:32rem;
 		font-size: 1.3em;
 	}
 	/*right side content parent*/
@@ -131,9 +156,7 @@
 		padding-top: 2%;
 		padding-bottom: 1%;
 		background-color: var(--main-color);
-		margin-left:30%;
-		height:100%;
-		width:68%;
+		width:68rem;
 		font-size: 1.3em;
 	}	
 	/*google image sizing % positioning*/
@@ -146,9 +169,9 @@
 		height:10%;
 	}
 	.googlesearch{
-	border:1px solid black;
-	padding:4px;
-	width:20em;
+		border:1px solid black;
+		padding:4px;
+		width:20em;
 	}
 	/*webkit image sizing and positioning*/
 	.webkit {
@@ -169,7 +192,7 @@
 	/*useful links flex-box control*/
 	.flex {
 		display: flex;
-  		flex-wrap: wrap;
+		flex-wrap: wrap;
 	}
 	.link {
 		background-color: var(--side-color);
@@ -177,7 +200,7 @@
 		margin: 5px;
 		text-align: center;
 		line-height: 50px;
-		font-size: 0.9em;
+		font-size: 1.1em;
 		border-style:solid;
 		border-width: 3px;
 		border-color: var(--side-color);

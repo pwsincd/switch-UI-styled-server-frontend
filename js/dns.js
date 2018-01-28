@@ -87,17 +87,40 @@ Using our page isn't necessary, but you do need a way to get this link to the "S
 					break;
 				}
 				case 'five':{
-					htmlContent = `<div class="flex">
-					<div class="link"><a href="https://realdekkia.github.io/switch-tetris/">Tetris</a></div>
-					<div class="link"><a href="http://switchboard.cool/">Switchboard</a></div>
-					<div class="link"><a href="http://fights.today/">fights.today</a></div>
-					<div class="link"><a href="https://html5test.com/">html5test</a></div>
-					<div class="link"><a href="https://pegaswitch.com/">Pegaswitch</a></div>
-					<div class="link"><a href="https://gbatemp.net/categories/nintendo-switch-discussions.282/">GBAtemp</a></div>
-					<div class="link"><a href=""></a>...</div>
-					<div class="link"><a href=""></a>...</div>
-					<div class="link"><a href=""></a>...</div>
-					</div>`;
+					htmlContent = `
+					<h3>Switch-related</h3>
+					<div class="flex">
+						<div class="link"><a href="https://realdekkia.github.io/switch-tetris/">Play Tetris</a></div>
+						<div class="link"><a href="http://switchboard.cool/">Switchboard</a></div>
+						<div class="link"><a href="http://fights.today/">fights.today</a></div>
+						<div class="link"><a href="https://html5test.com/">html5test</a></div>
+						<div class="link"><a href="https://gbatemp.net/categories/nintendo-switch-discussions.282/">GBAtemp</a></div>
+					</div>
+					<br>
+					If you have your own site that you'd like to add to this page, let us know!
+					<br>
+					<h3>Other Links</h3>
+					<div class="flex">
+						<div class="link"><a href="https://reddit.com">Reddit</a></div>
+						<div class="link"><a href="https://tumblr.com">Tumblr</a></div>
+						<div class="link"><a href="https://twitter.com">Twitter</a></div>
+						<div class="link"><a href="https://wikipedia.org">Wikipedia</a></div>
+						<div class="link"><a href="https://mail.google.com">GMail</a></div>
+						<div class="link"><a href="https://facebook.com">Facebook</a></div>
+						<div class="link"><a href="https://roblox.com">Roblox.com</a></div>
+						<div class="link"><a href="https://minecraft.net">Minecraft.net</a></div>
+						<div class="link"><a href="http://zeldadungeon.net">ZeldaDungeon</a></div>
+						<div class="link"><a href="https://youtube.com">YouTube</a></div>
+						<div class="link"><a href="https://github.com">GitHub</a></div>
+						<div class="link"><a href="https://deviantart">DeviantArt</a></div>
+						<div class="link"><a href="https://wattpad.com">WattPad</a></div>
+						<div class="link"><a href="https://gdax.com">GDAX</a></div>
+						<div class="link"><a href="https://instagram.com">Instagram</a></div>
+						<div class="link"><a href="https://duckduckgo.com">DuckDuckGo</a></div>
+						<div class="link"><a href="https://yahoo.com">Yahoo</a></div>
+						<div class="link"><a href="https://bing.com">Bing</a></div>
+					</div>
+					`;
 					break;
 				}
 				case 'cancel':{
@@ -114,17 +137,18 @@ Using our page isn't necessary, but you do need a way to get this link to the "S
 					break;
 				}
 				case 'about':{
-					htmlContent = `<div><h2>About SwitchBru DNS server :</h2><br>
+					htmlContent = `<h2>About SwitchBru DNS server</h2>
 					This service is provided free of charge with no warranty whatsoever. The service does not store or retain any personal data. Besides providing the Google redirect for the Nintendo Switch, all DNS queries are handled via <a href="https://developers.google.com/speed/public-dns/">Google DNS</a>.
 <br><br>
-As such this server <b>does not block firmware updates</b>. If you are looking to block updates, you should use <a href="https://reswitched.tech/info/faq">ReSwitched DNS</a>, or stay offline. If you are interested in us adding update blocking, leave feedback in the <a href="https://docs.google.com/forms/d/e/1FAIpQLSewt6insjUEzg0dWV--n5OlDodk2Zflr3pbd4XWs6hEuZTzNg/viewform">survey</a>.
+We are hosting this service as we believe that those of us that purchased an Internet-capable Switch should have the right to browse the web! We hope that one day Nintendo adds an official web browser to the console.
 <br><br>
-Visit this page on a computer for more information about SwitchBru: <a href="http://switchbru.com/dns">http://switchbru.com/dns</a>
-					</div>`;
+This server <b>does not currently block firmware updates</b>. If you are looking to block updates, you should use <a href="https://reswitched.tech/info/faq">ReSwitched DNS</a>, or stay offline.`;
 					break;
 				}
 			}
 			targetDiv.innerHTML = htmlContent;
+			var myDiv = document.getElementById('content');
+			myDiv.scrollTop = 0;
 		};
 		// time function
 		function checkTime(i) {

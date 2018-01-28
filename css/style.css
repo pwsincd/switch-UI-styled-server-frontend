@@ -240,3 +240,7 @@
 		transition: 0.5s;
 		animation: border-pulsate 1.5s infinite;
 	}
+	li
+	{
+		padding-bottom: 10px;
+	}

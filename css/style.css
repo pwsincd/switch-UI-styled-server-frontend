@@ -40,9 +40,9 @@
 	}
 	/*animation for plulsation border*/
 	@keyframes border-pulsate {
-		0%   { border-color: rgba(0, 255, 255, 0.5); }
+		0%   { border-color: rgba(0, 255, 255, 0.3); }
 		50% { border-color: rgba(0, 255, 255, 1); }
-		100%   { border-color: rgba(0, 255, 255, 0.5); }
+		100%   { border-color: rgba(0, 255, 255, 0.3); }
 	}
 	/*menu item parent div*/
 	.outer{
@@ -64,7 +64,7 @@
 		-webkit-transition-timing-function: ease-in-out;
 		transition-timing-function: ease-in-out;
 		transition: 0.5s;
-		animation: border-pulsate 1.5s infinite;
+		animation: border-pulsate 1s infinite;
 	}
 	/*menu item inner div*/
 	.inner{
@@ -217,7 +217,7 @@
 		-webkit-transition-timing-function: ease-in-out;
 		transition-timing-function: ease-in-out;
 		transition: 0.5s;
-		animation: border-pulsate 1.5s infinite;
+		animation: border-pulsate 1.0s infinite;
 	}
 	/*text entry and submit button styling*/
 	input[type=text],input[type=url], select {
@@ -244,7 +244,7 @@
 		-webkit-transition-timing-function: ease-in-out;
 		transition-timing-function: ease-in-out;
 		transition: 0.5s;
-		animation: border-pulsate 1.5s infinite;
+		animation: border-pulsate 1.0s infinite;
 	}
 	input[type=submit] {
 		font-size: 1.3em;
@@ -265,19 +265,9 @@
 		-webkit-transition-timing-function: ease-in-out;
 		transition-timing-function: ease-in-out;
 		transition: 0.5s;
-		animation: border-pulsate 1.5s infinite;
+		animation: border-pulsate 1.0s infinite;
 	}
 	li
 	{
 		padding-bottom: 10px;
-	}
-
-	.clearfix:before,
-	.clearfix:after {
-		content: " ";
-		display: table;
-	}
-
-	.clearfix:after {
-		clear: both;
 	}

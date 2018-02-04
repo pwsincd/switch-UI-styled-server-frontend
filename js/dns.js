@@ -93,7 +93,11 @@ Using our page isn't necessary, but you do need a way to get this link to the "S
 						<div class="link"><a href="https://realdekkia.github.io/switch-tetris/">Play Tetris</a></div>
 						<div class="link"><a href="http://switchboard.cool/">Switchboard</a></div>
 						<div class="link"><a href="http://fights.today/">fights.today</a></div>
-						<div class="link"><a href="https://html5test.com/">html5test</a></div>
+						<div class="link"><a href="https://www.wiiubru.com/2048/">2048</a></div>
+						<div class="link"><a href="https://quickdraw.withgoogle.com/">QuickDraw</a></div>
+						<div class="link"><a href="http://browserquest.mozilla.org/">BrowserQuest</a></div>
+						<div class="link"><a href="https://www.google.com/logos/2010/pacman10-i.html">Pac-Man</a></div>
+						<div class="link"><a href="http://www.wiiubru.com/gp.html">Gamepad</a></div>
 						<div class="link"><a href="https://gbatemp.net/categories/nintendo-switch-discussions.282/">GBAtemp</a></div>
 					</div>
 					<br>
@@ -119,6 +123,7 @@ Using our page isn't necessary, but you do need a way to get this link to the "S
 						<div class="link"><a href="https://duckduckgo.com">DuckDuckGo</a></div>
 						<div class="link"><a href="https://yahoo.com">Yahoo</a></div>
 						<div class="link"><a href="https://bing.com">Bing</a></div>
+
 					</div>
 					`;
 					break;

@@ -111,6 +111,9 @@ Using our page isn't necessary, but you do need a way to get this link to the "S
 						<div class="link"><a href="https://wikipedia.org">Wikipedia</a></div>
 						<div class="link"><a href="https://mail.google.com">GMail</a></div>
 						<div class="link"><a href="https://facebook.com">Facebook</a></div>
+						<div class="link"><a href="https://amazon.com">Amazon</a></div>
+						<div class="link"><a href="https://www.pixiv.net">Pixiv</a></div>
+						<div class="link"><a href="https://closed.pizza">ClosedVerse</a></div>
 						<div class="link"><a href="https://roblox.com">Roblox.com</a></div>
 						<div class="link"><a href="https://minecraft.net">Minecraft.net</a></div>
 						<div class="link"><a href="http://zeldadungeon.net">ZeldaDungeon</a></div>

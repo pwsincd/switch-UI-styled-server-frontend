@@ -225,7 +225,7 @@ window.onload = function() {
 			}
 			if (counter === 7) {
 				clearInterval(counter);
-				//window.location.href = "https://www.google.com/webhp?nomo=1&hl=en";
+				window.location.href = "https://www.google.com/webhp?nomo=1&hl=en";
 			}   
 		}, 1000);
 	})();

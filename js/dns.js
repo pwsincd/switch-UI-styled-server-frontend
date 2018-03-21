@@ -223,7 +223,7 @@ window.onload = function() {
 			if (counter >= 0 && ("#count").length) {
 				$("#count").html(counter);
 			}
-			if (counter === 7) {
+			if (counter === 0) {
 				clearInterval(counter);
 				window.location.href = "https://www.google.com/webhp?nomo=1&hl=en";
 			}   

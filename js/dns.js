@@ -9,6 +9,7 @@ var cursor = false;
 var htmlContent = '';
 var selected;
 var change = true;
+var counting = true;
 
 // Starting html content
 var intro = '<div class="cancel-content"><p><h2>Welcome to SwitchBru DNS.</h2><p><br>Redirecting to <a id="google-link" href="https://www.google.com/webhp?nomo=1&hl=en" tabindex="-1" down="cancel" up="nav" left="outer-google">Google</a> in <span id="count">7</span> seconds. <div><input type="submit" class="selected" id="cancel" tabindex="-1" up="google-link" left="outer-google" value="Cancel Redirection" onclick="populateData(this.id)" /></div></div>';
@@ -189,6 +190,7 @@ function populateData(event){
 	// Change icon
 	$("#nav #icon").replaceWith($("#"+event+" svg")[0].outerHTML);
 	$("#nav svg").attr("id", "icon");
+	counting = false;
 	
 };
 
@@ -220,10 +222,10 @@ window.onload = function() {
 		var counter = 7;
 		setInterval(function() {
 			counter--;
-			if (counter >= 0 && ("#count").length) {
+			if (counter >= 0 && $("#count").length) {
 				$("#count").html(counter);
 			}
-			if (counter === 0) {
+			if (counter === 0 && $("#count").length && counting) {
 				clearInterval(counter);
 				window.location.href = "https://www.google.com/webhp?nomo=1&hl=en";
 			}   

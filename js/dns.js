@@ -257,7 +257,7 @@ function loadNews(type) {
 					news_image = data[i].image;
 					// Prepare each news item
 					// <div class="ignore"> is for HTML parsing
-					newsBox = '<div class="ignore"><div class="news-item" id="news'+news_id+'" onclick="showNews(this.id)"><img class="news-image" src="'+newsImageURL+news_image+'" height="169"><div class="news-title"><span>'+news_title+'</span></div></div></div>';
+					newsBox = '<div class="ignore"><div class="news-item" id="news'+news_id+'" onclick="showNews(this.id)"><div class="news-image-wrapper"><img class="news-image" src="'+newsImageURL+news_image+'"></div><div class="news-title"><span>'+news_title+'</span></div></div></div>';
 					
 					// Add the gamepad navigation elements
 					// Not sure how to annotate this as it's a bit confusing

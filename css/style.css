@@ -297,9 +297,6 @@ a.selected {
     animation: border-pulsate 1.0s infinite;
 }
 .news-image {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
 	max-height: 169px;
 	vertical-align: middle;
 	width: 254px;
@@ -410,4 +407,12 @@ a.selected {
 	font-size: 13.5px;
 	width: 47%;
 	height: 25px;
+}
+.news-image-wrapper {
+	align-items: center;
+	display: flex;
+	height: 169px;
+	line-height: 115px;
+	text-align: center;
+	width: 260px;
 }

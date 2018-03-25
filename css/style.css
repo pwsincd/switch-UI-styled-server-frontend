@@ -297,9 +297,11 @@ a.selected {
     animation: border-pulsate 1.0s infinite;
 }
 .news-image {
+	margin-left: auto;
+	margin-right: auto;
 	max-height: 169px;
+	max-width: 254px;
 	vertical-align: middle;
-	width: 254px;
 }
 .news-title {
 	background-color: white;	

@@ -301,6 +301,8 @@ a.selected {
 	margin-right: auto;
 	max-height: 169px;
 	max-width: 254px;
+	position: relative;
+	right: 3px;
 	vertical-align: middle;
 }
 .news-title {

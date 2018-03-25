@@ -18,10 +18,8 @@ $("#content").html(intro);
 // Variables for the news page
 // Ready for no news to be loaded
 var newsBody = 'Sorry, no news to show <i class="far fa-frown"></i><br><br><small>[<a href="#" onclick="loadNews(\'refresh\')" id="refresh" tabindex="-1" left="outer-news">refresh</a>]</small><span class="select-next" selectnext="refresh"></span>';
-// var newsURL = "https://www.switchbru.com/news/";
-var newsURL = "http://switchbru-news.dx.am/";
-// var newsImageURL = "https://www.switchbru.com/news/images/";
-var newsImageURL = "http://switchbru-news.dx.am/images/image.php?name=";
+var newsURL = "https://www.switchbru.com/news/";
+var newsImageURL = "https://www.switchbru.com/news/images/";
 
 // Switch between different HTML pages
 function populateData(event){
@@ -245,7 +243,7 @@ function loadNews(type) {
 	var first;
 	var isNews = false;
 	$.ajax({
-		url: newsURL+"get-articles.php", // Returns an article list
+		url: newsURL+"get-articles", // Returns an article list
 		dataType: "json",
 		success: function(data) {
 			if(data.length > 0) { // If there are articles
@@ -318,7 +316,7 @@ function showNews(newsID) {
 	// Clean the article ID
 	var ID = newsID.replace("news","");
 	$.ajax({
-		url: newsURL+"get-news.php", // Gets the article information as JSON
+		url: newsURL+"get-news", // Gets the article information as JSON
 		method: "POST",
 		dataType: "json",
 		data: {"id":ID},
@@ -372,7 +370,7 @@ function vote(type) {
 	id = id.replace("article","");
 	
 	$.ajax({
-		url: newsURL+"vote.php", // Returns vote success / type as JSON
+		url: newsURL+"vote", // Returns vote success / type as JSON
 		method: "POST",
 		dataType: "json",
 		data: {"id":id,"type":type},

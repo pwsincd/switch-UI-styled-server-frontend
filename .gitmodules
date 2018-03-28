@@ -1,0 +1,3 @@
+[submodule "nx-hbmenu"]
+	path = nx-hbmenu
+	url = https://github.com/switchbrew/nx-hbexploit300.git

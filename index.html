@@ -1,4 +1,4 @@
-<!--switchbru DNS template by pwsincd-->
+<!-- SwitchBru DNS designed by pwsincd, with edits for gamepad support and news by Ep8Script -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,47 +7,53 @@
 	<script src="js/jquery/1.10.1/jquery.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js">
 	</script>
+	<script src="js/gamepad.js"></script>
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-	<div class="nav" id="nav" onclick="populateData(this.id)">
-		<p><i id="icon" class="fab fa-hubspot"></i>  Switchbru DNS</p>
+<body onmouseover="removeSelect()">
+	<div class="nav" id="nav" down="outer-google" onclick="populateData(this.id)">
+		<p><i id="icon" class="fab fa-hubspot"></i>  <span class="title">SwitchBru DNS</span></p>
 		<div class ="time">
 			<span id="time"></span>
 		</div>
+		<span class="next" down="outer-google" up="outer-google" left="outer-google" right="outer-google"></span>
 	</div>
 	<div class="container">
 		<!--<hr>-->
 		<div class="menu">
-			<div class="outer">
+			<div class="outer" id="outer-google" up="nav" down="outer-url" onclick="touched(this.id)">
 				<div class="inner" id="one" onclick="populateData(this.id)"><i class="fab fa-google"></i>&nbsp;&nbsp;Google	
 				</div>				
 			</div>
-			<div class="outer">
+			<div class="outer" id="outer-url" up="outer-google" down="outer-news" onclick="touched(this.id)">
 				<div class="inner" id="two" onclick="populateData(this.id)"><i class="fas fa-keyboard"></i>&nbsp;&nbsp;Enter URL					
 				</div>				
 			</div>
-			<div class="outer">
+			<div class="outer" id="outer-news" up="outer-url" down="outer-survey" onclick="touched(this.id)">
+				<div class="inner" id="news" onclick="populateData(this.id)"><i class="far fa-newspaper"></i>&nbsp;&nbsp;News			
+				</div>		
+			</div>
+			<div class="outer" id="outer-survey" up="outer-news" down="outer-yt" onclick="touched(this.id)">
 				<div class="inner" id="three" onclick="populateData(this.id)"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Usage Survey					
 				</div>				
 			</div>
-			<div class="outer">
-				<div class="inner" id="four" onclick="populateData(this.id)"><i class="fab fa-youtube-square"></i>&nbsp;&nbsp;Youtube			
+			<div class="outer" id="outer-yt" up="outer-survey" down="outer-links" onclick="touched(this.id)">
+				<div class="inner" id="four" onclick="populateData(this.id)"><i class="fab fa-youtube-square"></i>&nbsp;&nbsp;YouTube			
 				</div>			
 			</div>
-			<div class="outer">
+			<div class="outer" id="outer-links" up="outer-yt" down="outer-about" onclick="touched(this.id)">
 				<div class="inner" id="five" onclick="populateData(this.id)"><i class="fas fa-link"></i>&nbsp;&nbsp;Useful Links			
 				</div>		
 			</div>
 			<hr>
-			<div class="outer">
+			<div class="outer" id="outer-about" up="outer-links" onclick="touched(this.id)">
 				<div class="inner" id="about" onclick="populateData(this.id)"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;About			
 				</div>		
 			</div>
 		</div>
 		<div class="main" id="content">
 		</div>
-	</div>
+	</div><span class="inputbuttons" style="display:none;"></span>
 	<script src="js/dns.js"></script>
 </body>
 </html>

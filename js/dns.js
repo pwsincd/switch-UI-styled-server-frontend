@@ -217,7 +217,7 @@ startTime();
 window.onload = function() {
 	// Redirection countdown
 	(function(){
-		var counter = 7;
+		var counter = 10;
 		setInterval(function() {
 			counter--;
 			if (counter >= 0 && $("#count").length) {

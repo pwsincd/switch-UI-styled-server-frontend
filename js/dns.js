@@ -579,8 +579,8 @@ function removeSelect() {
 }
 
 function UP() {
-	var type = $(document.activeElement).attr('type');
-	if(type !== "text" || type !== "url" || type !== "password") {
+	var focused = $("input").is(":focus");
+	if(!focused) {
 		if($(".selected").attr("up")) {
 			$(".selected").removeClass("selected").addClass("prevselected");
 			$("#"+$(".prevselected").attr("up")).addClass("selected");
@@ -594,8 +594,8 @@ function UP() {
 }
 
 function LEFT() {
-	var type = $(document.activeElement).attr('type');
-	if(type !== "text" || type !== "url" || type !== "password") {
+	var focused = $("input").is(":focus");
+	if(!focused) {
 		if($(".selected").attr("left")) {
 			$(".select-next").attr("selectnext", $(".selected").attr("id"));
 			$(".selected").removeClass("selected").addClass("prevselected");
@@ -616,8 +616,8 @@ function LEFT() {
 }
 
 function RIGHT() {
-	var type = $(document.activeElement).attr('type');
-	if(type !== "text" || type !== "url" || type !== "password") {
+	var focused = $("input").is(":focus");
+	if(!focused) {
 		if($(".selected").attr("right")) {
 			$(".selected").removeClass("selected").addClass("prevselected");
 			$("#"+$(".prevselected").attr("right")).addClass("selected");
@@ -632,8 +632,8 @@ function RIGHT() {
 }
 
 function DOWN() {
-	var type = $(document.activeElement).attr('type');
-	if(type !== "text" || type !== "url" || type !== "password") {
+	var focused = $("input").is(":focus");
+	if(!focused) {
 		if($(".selected").attr("down")) {
 			$(".selected").removeClass("selected").addClass("prevselected");
 			$("#"+$(".prevselected").attr("down")).addClass("selected");

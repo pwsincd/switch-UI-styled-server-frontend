@@ -579,59 +579,71 @@ function removeSelect() {
 }
 
 function UP() {
-	if($(".selected").attr("up")) {
-		$(".selected").removeClass("selected").addClass("prevselected");
-		$("#"+$(".prevselected").attr("up")).addClass("selected");
-		$(".prevselected").removeClass("prevselected");
-		if($(".selected.outer").length) {
-			populateData($(".selected .inner").attr("id"));
+	var type = $(document.activeElement).attr('type');
+	if(type !== "text" || type !== "url" || type !== "password") {
+		if($(".selected").attr("up")) {
+			$(".selected").removeClass("selected").addClass("prevselected");
+			$("#"+$(".prevselected").attr("up")).addClass("selected");
+			$(".prevselected").removeClass("prevselected");
+			if($(".selected.outer").length) {
+				populateData($(".selected .inner").attr("id"));
+			}
 		}
+		linkScroll();
 	}
-	linkScroll();
 }
 
 function LEFT() {
-	if($(".selected").attr("left")) {
-		$(".select-next").attr("selectnext", $(".selected").attr("id"));
-		$(".selected").removeClass("selected").addClass("prevselected");
-		$("#"+$(".prevselected").attr("left")).addClass("selected");
-		$(".prevselected").removeClass("prevselected");
-		if($(".selected.outer").length && starting == true) {
-			populateData($(".selected .inner").attr("id"));
-			starting = false;
+	var type = $(document.activeElement).attr('type');
+	if(type !== "text" || type !== "url" || type !== "password") {
+		if($(".selected").attr("left")) {
+			$(".select-next").attr("selectnext", $(".selected").attr("id"));
+			$(".selected").removeClass("selected").addClass("prevselected");
+			$("#"+$(".prevselected").attr("left")).addClass("selected");
+			$(".prevselected").removeClass("prevselected");
+			if($(".selected.outer").length && starting == true) {
+				populateData($(".selected .inner").attr("id"));
+				starting = false;
+			}
 		}
-	}
-	if($("#four.inner-active").length && change == false) {
-		change = true;
-	}
-	else if($("#news.inner-active") && change == false) {
-		change = true;
+		if($("#four.inner-active").length && change == false) {
+			change = true;
+		}
+		else if($("#news.inner-active") && change == false) {
+			change = true;
+		}
 	}
 }
 
 function RIGHT() {
-	if($(".selected").attr("right")) {
-		$(".selected").removeClass("selected").addClass("prevselected");
-		$("#"+$(".prevselected").attr("right")).addClass("selected");
-		$(".prevselected").removeClass("prevselected");
-	}
-	else if($(".selected.outer").length) {
-		$(".selected").removeClass("selected");
-		$("#"+$(".select-next").attr("selectnext")).addClass("selected");
-		resetChange();
+	var type = $(document.activeElement).attr('type');
+	if(type !== "text" || type !== "url" || type !== "password") {
+		if($(".selected").attr("right")) {
+			$(".selected").removeClass("selected").addClass("prevselected");
+			$("#"+$(".prevselected").attr("right")).addClass("selected");
+			$(".prevselected").removeClass("prevselected");
+		}
+		else if($(".selected.outer").length) {
+			$(".selected").removeClass("selected");
+			$("#"+$(".select-next").attr("selectnext")).addClass("selected");
+			resetChange();
+		}
 	}
 }
 
 function DOWN() {
-	if($(".selected").attr("down")) {
-		$(".selected").removeClass("selected").addClass("prevselected");
-		$("#"+$(".prevselected").attr("down")).addClass("selected");
-		$(".prevselected").removeClass("prevselected");
-		if($(".selected.outer").length) {
-			populateData($(".selected .inner").attr("id"));
+	var type = $(document.activeElement).attr('type');
+	if(type !== "text" || type !== "url" || type !== "password") {
+		if($(".selected").attr("down")) {
+			$(".selected").removeClass("selected").addClass("prevselected");
+			$("#"+$(".prevselected").attr("down")).addClass("selected");
+			$(".prevselected").removeClass("prevselected");
+			if($(".selected.outer").length) {
+				populateData($(".selected .inner").attr("id"));
+			}
 		}
+		linkScroll();
 	}
-	linkScroll();
 }
 
 function linkScroll() { // Controls scrolling on the tabs where necessary

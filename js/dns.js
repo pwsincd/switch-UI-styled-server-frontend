@@ -770,4 +770,5 @@ function resetChange() {
 		change = false;
 	}
 	$("input").blur();
+	XClosed = false;
 }

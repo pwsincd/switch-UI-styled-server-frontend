@@ -10,6 +10,7 @@ var htmlContent = '';
 var selected;
 var change = true;
 var counting = true;
+var XClosed = false;
 
 // Starting html content
 var intro = '<div class="cancel-content"><p><h2>Welcome to SwitchBru DNS.</h2><p><br>Redirecting to <a id="google-link" href="https://www.google.com/webhp?nomo=1&hl=en" tabindex="-1" down="cancel" up="nav" left="outer-google">Google</a> in <span id="count">10</span> seconds. <div><input type="submit" class="selected" id="cancel" tabindex="-1" up="google-link" left="outer-google" value="Cancel Redirection" onclick="populateData(this.id)" /></div></div>';
@@ -516,6 +517,8 @@ gamepad.bind(Gamepad.Event.BUTTON_DOWN, function (e) {
 		case "FACE_3": // Y Button - Refresh
 			location.reload();
 			break;
+		case "FACE_4": // X Button
+			XClosed = true;
     }
 	cursor = false; // Set cursor back to false, just in case (otherwise it'll be turned back again anyway)
 });
@@ -580,7 +583,7 @@ function removeSelect() {
 
 function UP() {
 	var focused = $("input").is(":focus");
-	if(!focused) {
+	if(XClosed || !focused) {
 		if($(".selected").attr("up")) {
 			$(".selected").removeClass("selected").addClass("prevselected");
 			$("#"+$(".prevselected").attr("up")).addClass("selected");
@@ -590,12 +593,14 @@ function UP() {
 			}
 		}
 		linkScroll();
+		resetChange();
+		XClosed = false;
 	}
 }
 
 function LEFT() {
 	var focused = $("input").is(":focus");
-	if(!focused) {
+	if(XClosed || !focused) {
 		if($(".selected").attr("left")) {
 			$(".select-next").attr("selectnext", $(".selected").attr("id"));
 			$(".selected").removeClass("selected").addClass("prevselected");
@@ -612,6 +617,8 @@ function LEFT() {
 		else if($("#news.inner-active") && change == false) {
 			change = true;
 		}
+		resetChange();
+		XClosed = false;
 	}
 }
 
@@ -626,14 +633,14 @@ function RIGHT() {
 		else if($(".selected.outer").length) {
 			$(".selected").removeClass("selected");
 			$("#"+$(".select-next").attr("selectnext")).addClass("selected");
-			resetChange();
 		}
+		resetChange();
 	}
 }
 
 function DOWN() {
 	var focused = $("input").is(":focus");
-	if(!focused) {
+	if(XClosed || !focused) {
 		if($(".selected").attr("down")) {
 			$(".selected").removeClass("selected").addClass("prevselected");
 			$("#"+$(".prevselected").attr("down")).addClass("selected");
@@ -643,6 +650,8 @@ function DOWN() {
 			}
 		}
 		linkScroll();
+		resetChange();
+		XClosed = false;
 	}
 }
 

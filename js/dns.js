@@ -519,6 +519,7 @@ gamepad.bind(Gamepad.Event.BUTTON_DOWN, function (e) {
 			break;
 		case "FACE_4": // X Button
 			XClosed = true;
+			break;
     }
 	cursor = false; // Set cursor back to false, just in case (otherwise it'll be turned back again anyway)
 });
@@ -594,7 +595,6 @@ function UP() {
 		}
 		linkScroll();
 		resetChange();
-		XClosed = false;
 	}
 }
 
@@ -618,13 +618,12 @@ function LEFT() {
 			change = true;
 		}
 		resetChange();
-		XClosed = false;
 	}
 }
 
 function RIGHT() {
 	var focused = $("input").is(":focus");
-	if(!focused) {
+	if(XClosed || !focused) {
 		if($(".selected").attr("right")) {
 			$(".selected").removeClass("selected").addClass("prevselected");
 			$("#"+$(".prevselected").attr("right")).addClass("selected");
@@ -651,7 +650,6 @@ function DOWN() {
 		}
 		linkScroll();
 		resetChange();
-		XClosed = false;
 	}
 }
 
@@ -771,4 +769,5 @@ function resetChange() {
 	if($(".selected").attr("id") == "gbatemp-thread" || $(".selected").hasClass("news-item")) { // If on a specific tab, set change = false
 		change = false;
 	}
+	$("input").blur();
 }

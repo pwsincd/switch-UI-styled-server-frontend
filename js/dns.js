@@ -131,8 +131,7 @@ function populateData(event){
 				<div class="link" id="24" left="23" up="21" down="27"><a href="https://deviantart" tabindex="-1">DeviantArt</a></div>
 				<div class="link" id="25" left="outer-links" up="22" right="26" down="28"><a href="https://wattpad.com" tabindex="-1">WattPad</a></div>
 				<div class="link" id="26" left="25" up="23" right="27" down="29"><a href="https://gdax.com" tabindex="-1">GDAX</a></div>
-				<div class="link" id="27" left="26" up="24" down="30"><a href="https://instagram.com" tabindex="-1">Instagram</a></div>
-				<div class="link" id="28" left="outer-links" up="25" right="29"><a href="https://duckduckgo.com" tabindex="-1">DuckDuckGo</a></div>
+				<div class="link" id="27" left="26" up="24" down="30"><a href="https://instagram.com" tabindex="-1">Instagram</a></div>				<div class="link" id="28" left="outer-links" up="25" right="29"><a href="https://duckduckgo.com" tabindex="-1">DuckDuckGo</a></div>
 				<div class="link" id="29" left="28" up="26" right="30"><a href="https://yahoo.com" tabindex="-1">Yahoo</a></div>
 				<div class="link" id="30" left="29" up="27"><a href="https://bing.com" tabindex="-1">Bing</a></div>
 			</div><span class="select-next" selectnext="1"></span><br>
@@ -161,7 +160,7 @@ function populateData(event){
 			<br><br>
 			This server <b>does not currently block firmware updates</b>. If you are looking to block updates, you should use the <a href="https://reswitched.tech/info/faq" tabindex="-1" id="faq" up="google-dns" left="outer-about">ReSwitched DNS</a>, or stay offline.
 			<br><br><hr />
-			<small>v3.0.0 &ndash; created by vgmoose and designed by pwsincd, with controller support by Ep8Script</small><span class="select-next" selectnext="google-dns"></span>`;
+			<small>v3.0.1 &ndash; created by vgmoose and designed by pwsincd, with controller support by Ep8Script</small><span class="select-next" selectnext="google-dns"></span>`;
 			$(".title").html("About");
 			selected = "outer-about";
 			break;

@@ -1,5 +1,5 @@
 // Javascript to manipulate SwitchBru DNS UI by pwsincd
-// With gamepad support added by Ep8Script
+// With gamepad support and the news channel added by Ep8Script
 //
 // Set variables
 var gamepad = new Gamepad();
@@ -189,7 +189,6 @@ function populateData(event){
 	$("#nav #icon").replaceWith($("#"+event+" svg")[0].outerHTML);
 	$("#nav svg").attr("id", "icon");
 	counting = false;
-	
 };
 
 // Check time function
@@ -434,6 +433,9 @@ function touched(id) {
 	$(".next").addClass("selected");
 }
 
+// Notification about cursor has been sent?
+var sent = false;
+
 // Constant loop while Joy-Con are connected
 gamepad.bind(Gamepad.Event.TICK, function (gamepads) {
 	if($(".touched:hover").length) { // If a tab was touched and the invisible cursor is still there
@@ -441,6 +443,11 @@ gamepad.bind(Gamepad.Event.TICK, function (gamepads) {
 	}
 	else if($("body:hover").length) { // If the actual cursor is on screen
 		cursor = true;
+		// Sent notification about using cursor
+		if(!sent) {
+			sent = true;
+			alert("Did you know?\nYou no longer need to use the cursor. Feel free to turn it off and navigate like the real Switch UI!");
+		}
 		// Clauses to return to the right place
 		if($("#cancel").length) {
 			$(".next").attr("up", "cancel").attr("down", "cancel").attr("left", "cancel").attr("right", "cancel");

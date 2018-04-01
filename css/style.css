@@ -425,9 +425,9 @@ a.selected {
 }
 #adtop {
 /*    background-color: lightgray;*/
-    text-align: center;
+    text-align: right;
     float: left;
     z-index: 10000;
-    width: 100%;
+    width: 85%;
     position: absolute;
 }

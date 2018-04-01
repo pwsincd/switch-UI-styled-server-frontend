@@ -125,6 +125,10 @@ hr {
 	border-bottom-color: var(--text-color);
 	margin-left: 2.5%;
 }
+#nav {
+	cursor: pointer;
+	width: 30%;
+}
 #nav:hover #icon, #nav.selected #icon {
 	color:var(--text-focus-color);
 }

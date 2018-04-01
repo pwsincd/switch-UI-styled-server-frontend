@@ -129,6 +129,7 @@ window.onload = function() {
 	
 	// Load the news articles
 	loadNews("first");
+	$(".adsbygoogle iframe").attr("tabindex", "-1");
 }
 
 // Load news function

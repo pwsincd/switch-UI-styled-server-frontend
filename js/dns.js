@@ -81,7 +81,7 @@ function populateData(event){
 	}
 	// Sidebar highlighting
 	if(event !== "cancel" || event !== "about") {
-		$(".inner").removeClass("inner-activez");
+		$(".inner").removeClass("inner-active");
 		$("#"+event).addClass("inner-active");
 	}
 	// Change icon

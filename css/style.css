@@ -115,16 +115,19 @@ hr {
 	z-index: 10;
 	width:95%;
 	height: 100px;
+/*
 	padding-left:5%;
 	padding-right:5%;
+*/
 	background-color: var(--main-color);
 	font-size: 1.9em;
 /*	cursor: pointer;*/
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
 	border-bottom-color: var(--text-color);
-	margin-left: 2.5%;
+	margin-left: 5%;
 }
+
 #nav:hover #icon, #nav.selected #icon {
 	color:var(--text-focus-color);
 }
@@ -421,7 +424,10 @@ a.selected {
 	width: 260px;
 }
 #adtop {
-    background-color: lightgray;
+/*    background-color: lightgray;*/
     text-align: center;
-    margin-left: 40px;
+    float: left;
+    z-index: 10000;
+    width: 100%;
+    position: absolute;
 }

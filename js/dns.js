@@ -402,7 +402,7 @@ gamepad.bind(Gamepad.Event.BUTTON_DOWN, function (e) {
 			}
 			else if($(".selected.outer").length) { // If a tab is selected
 				$(".selected").removeClass("selected");
-				$("#"+$(".select-next").attr("selectnext")).addClass("selected");
+				$("#"+$(".main .select-next").attr("selectnext")).addClass("selected");
 				resetChange(); // See comments at function
 			}
 			else if($("#survey.selected").length) {
@@ -512,7 +512,7 @@ function LEFT() {
 	var focused = $("input").is(":focus");
 	if(XClosed || !focused) {
 		if($(".selected").attr("left")) {
-			$(".select-next").attr("selectnext", $(".selected").attr("id"));
+			$(".main .select-next").attr("selectnext", $(".selected").attr("id"));
 			$(".selected").removeClass("selected").addClass("prevselected");
 			$("#"+$(".prevselected").attr("left")).addClass("selected");
 			$(".prevselected").removeClass("prevselected");
@@ -541,7 +541,7 @@ function RIGHT() {
 		}
 		else if($(".selected.outer").length) {
 			$(".selected").removeClass("selected");
-			$("#"+$(".select-next").attr("selectnext")).addClass("selected");
+			$("#"+$(".main .select-next").attr("selectnext")).addClass("selected");
 		}
 		resetChange();
 	}
@@ -670,7 +670,7 @@ function linkScroll() { // Controls scrolling on the tabs where necessary
 		}
 	}
 	if($(".link.selected").length) {
-		$(".select-next").attr("selectnext", sID);
+		$(".main .select-next").attr("selectnext", sID);
 	}
 }
 

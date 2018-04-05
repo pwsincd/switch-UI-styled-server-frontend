@@ -24,56 +24,57 @@ var newsImageURL = "https://www.switchbru.com/news/images/";
 
 // Switch between different HTML pages
 function populateData(event){
+	var divLoad = true;
 	switch(event){
 		case 'nav': // Top navigation
 			location.reload();
 			break;
 		case 'one': // Google tab
-			htmlContent = $("#tab-"+event).html();
 			$(".title").html("Google");
 			selected = "outer-google";
 			break;
 		case 'two': // URL tab
-            htmlContent = $("#tab-"+event).html();
 			$(".title").html("Enter URL");
 			selected = "outer-url";
 			break;
 		case 'three': // Usage Survey tab
-            htmlContent = $("#tab-"+event).html();
 			selected = "outer-survey";
 			$(".title").html("Usage Survey");
 			break;
 		case 'four': // YouTube tab
-            htmlContent = $("#tab-"+event).html();
 			$(".title").html("YouTube");
 			selected = "outer-yt";
 			break;
 		case 'five': // Useful Links tab
-            htmlContent = $("#tab-"+event).html();
 			$(".title").html("Useful Links");
 			selected = "outer-links";
 			break;
 		case 'cancel': // After cancelling redirection
-            htmlContent = $("#tab-"+event).html();
 			selected = "outer-google";
 			break;
 		case 'about': // About tab
-            htmlContent = $("#tab-"+event).html();
 			$(".title").html("About");
 			selected = "outer-about";
 			break;
 		case 'news': // News tab
-			htmlContent = "<h2>Latest</h2>";
-			htmlContent += newsBody;
+			divLoad = false;
+			htmlContent = newsBody;
 			$(".title").html("News");
 			selected = "outer-news";
 			break;
 	}
 	if(change) { // I truly could not find a better way, don't know how I did it the first time
+		if(divLoad) {
+			htmlContent = $("#tab-"+event).html();
+		}
 		$("#content").html(htmlContent); // Set content to new content
-		var myDiv = document.getElementById('content');
-		myDiv.scrollTop = 0;
+		$("#content").scrollTop(0);
 		$(".next").attr("up", selected).attr("down", selected).attr("left", selected).attr("right", selected); // Prepare to select again
+		
+		if(selected == "outer-links") {
+			// Organise links correctly
+			organiseLinks();
+		}
 	}
 	else {
 		change = true;
@@ -265,18 +266,23 @@ function showNews(newsID) {
 }
 
 // Voting function
-function vote(type) {
+function vote(type, query = "") {
 	// Get the article ID and clean it up
 	var id = $("#news-article").attr("class");
 	id = id.replace("article","");
 	
 	$.ajax({
-		url: newsURL+"vote", // Returns vote success / type as JSON
+		url: newsURL+"vote"+query, // Returns vote success / type as JSON
 		method: "POST",
 		dataType: "json",
 		data: {"id":id,"type":type},
 		success: function(data) {
-			if(data.error !== true) { // If there is no error
+			if(data.error == true && data.allowed == false) {
+				if(confirm("This will store your IP address in our database.\nBy continuing, you are allowing us to store this information.")) {
+					vote(type, "?granted=true");
+				}
+			}
+			else if(data.error !== true) { // If there is no error
 				$(".voted").removeClass("voted"); // Remove the highlight if already voted
 				switch(data.vote) { // Get vote type
 					case 1: // If vote was a like
@@ -347,13 +353,6 @@ gamepad.bind(Gamepad.Event.TICK, function (gamepads) {
 			sent = true;
 			alert("Did you know?\nYou no longer need to use the cursor. Feel free to turn it off and navigate like the real Switch UI!");
 		}
-		// Clauses to return to the right place
-		if($("#cancel").length) {
-			$(".next").attr("up", "cancel").attr("down", "cancel").attr("left", "cancel").attr("right", "cancel");
-		}
-		else if($("#cancel-search").length) {
-			$(".next").attr("up", "cancel-search").attr("down", "cancel-search").attr("left", "cancel-search").attr("right", "cancel-search");
-		}
 	}
 	// Constantly get selected button - honestly not sure why this
 	// doesn't add ".next" to itself when it is selected just looking at it
@@ -397,7 +396,7 @@ gamepad.bind(Gamepad.Event.BUTTON_DOWN, function (e) {
 			}
 			else if($(".selected.outer").length) { // If a tab is selected
 				$(".selected").removeClass("selected");
-				$("#"+$(".select-next").attr("selectnext")).addClass("selected");
+				$("#"+$(".main .select-next").attr("selectnext")).addClass("selected");
 				resetChange(); // See comments at function
 			}
 			else if($("#survey.selected").length) {
@@ -507,7 +506,7 @@ function LEFT() {
 	var focused = $("input").is(":focus");
 	if(XClosed || !focused) {
 		if($(".selected").attr("left")) {
-			$(".select-next").attr("selectnext", $(".selected").attr("id"));
+			$(".main .select-next").attr("selectnext", $(".selected").attr("id"));
 			$(".selected").removeClass("selected").addClass("prevselected");
 			$("#"+$(".prevselected").attr("left")).addClass("selected");
 			$(".prevselected").removeClass("prevselected");
@@ -536,7 +535,7 @@ function RIGHT() {
 		}
 		else if($(".selected.outer").length) {
 			$(".selected").removeClass("selected");
-			$("#"+$(".select-next").attr("selectnext")).addClass("selected");
+			$("#"+$(".main .select-next").attr("selectnext")).addClass("selected");
 		}
 		resetChange();
 	}
@@ -665,7 +664,7 @@ function linkScroll() { // Controls scrolling on the tabs where necessary
 		}
 	}
 	if($(".link.selected").length) {
-		$(".select-next").attr("selectnext", sID);
+		$(".main .select-next").attr("selectnext", sID);
 	}
 }
 
@@ -676,4 +675,39 @@ function resetChange() {
 	}
 	$("input").blur();
 	XClosed = false;
+}
+
+// Organise the links correctly
+function organiseLinks() {
+	// Set variables for later
+	var hPos = 1; // Horizontal position
+	var vPos = 1; // Vertical position
+	var last; // Last link
+	$(".link").each(function(i) { // First loop
+		$(this).attr("id", i+1); // Store IDs
+	});
+	$(".link").each(function(i) { // Second loop
+		last = $(".link:not(.custom-link)").last().attr("id"); // Get the ID of the last link
+		if(i+1 !== last || i+1 !== last - 1 || i+1 !== last - 2) { // If it isn't in the bottom row
+			$(this).attr("down", i+4); // Pressing down goes to the next link
+		}
+		
+		if(vPos !== 1) { // If not on the top row
+			$(this).attr("up", i-2); // Add link one up
+		}
+		if(hPos !== 1) { // If not on the left side
+			$(this).attr("left", i); // Add link one left
+		}
+		else {
+			$(this).attr("left", "outer-links"); // Left goes back to the tab
+		}
+		if(hPos !== 3) { // If not on the right side
+			$(this).attr("right", i+2); // Add link one right
+		}
+		else {
+			hPos = 0; // Reset horizontal position
+			vPos++; // Increase vertical
+		}
+		hPos++; // Increase horizontal
+	});
 }

@@ -352,13 +352,6 @@ gamepad.bind(Gamepad.Event.TICK, function (gamepads) {
 			sent = true;
 			alert("Did you know?\nYou no longer need to use the cursor. Feel free to turn it off and navigate like the real Switch UI!");
 		}
-		// Clauses to return to the right place
-		if($("#cancel").length) {
-			$(".next").attr("up", "cancel").attr("down", "cancel").attr("left", "cancel").attr("right", "cancel");
-		}
-		else if($("#cancel-search").length) {
-			$(".next").attr("up", "cancel-search").attr("down", "cancel-search").attr("left", "cancel-search").attr("right", "cancel-search");
-		}
 	}
 	// Constantly get selected button - honestly not sure why this
 	// doesn't add ".next" to itself when it is selected just looking at it

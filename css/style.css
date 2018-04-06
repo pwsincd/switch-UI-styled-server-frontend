@@ -127,7 +127,6 @@ hr {
 }
 #nav {
 	cursor: pointer;
-	width: 30%;
 }
 #nav:hover #icon, #nav.selected #icon {
 	color:var(--text-focus-color);

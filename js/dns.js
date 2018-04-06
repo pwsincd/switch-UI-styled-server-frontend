@@ -266,7 +266,8 @@ function showNews(newsID) {
 }
 
 // Voting function
-function vote(type, query = "") {
+function vote(type, query) {
+	query = typeof query !== 'undefined' ? query : "";
 	// Get the article ID and clean it up
 	var id = $("#news-article").attr("class");
 	id = id.replace("article","");

@@ -128,7 +128,7 @@ hr {
 	margin-left: 5%;
 }
 #nav {
-	width: 30%;
+	cursor: pointer;
 }
 #nav:hover #icon, #nav.selected #icon {
 	color:var(--text-focus-color);

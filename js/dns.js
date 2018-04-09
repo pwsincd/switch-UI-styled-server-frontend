@@ -382,6 +382,7 @@ gamepad.bind(Gamepad.Event.TICK, function (gamepads) {
 // When a button is pressed - for DPAD, FACE buttons and TRIGGERS
 gamepad.bind(Gamepad.Event.BUTTON_DOWN, function (e) {
 	$(".spanbuttons").append(e.control); // I think it helped to do something with the control first but may not be necessary
+	$(".adsbygoogle iframe").attr("tabindex", "-1");
     switch (e.control) { // This section should explain itself for the most part
 		case "DPAD_UP":
 			UP();
@@ -440,6 +441,7 @@ var lastTime = 0; // Sets the last time the stick was moved
 
 // Event for Joy-Con sticks moving
 gamepad.bind(Gamepad.Event.AXIS_CHANGED, function (e) {
+	$(".adsbygoogle iframe").attr("tabindex", "-1");
 	var now = new Date().getTime(); // Get the current time
 	if (now - lastTime > 200 && !cursor) { // If the time difference is greater than 200, as otherwise the stick moves too fast
 		switch (e.axis) { // Pretty self explanatory

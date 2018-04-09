@@ -130,6 +130,12 @@ window.onload = function() {
 	
 	// Load the news articles
 	loadNews("first");
+	$.ajax({
+		type: "POST",
+		data: {"add":true},
+		url: "https://switchbru.com/hits/", 
+		dataType: "json"
+	});
 }
 
 // Load news function

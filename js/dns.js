@@ -105,6 +105,7 @@ function startTime() {
 	var m = today.getMinutes();
 	m = checkTime(m);
 	$("#time").html(h + ":" + m);
+
 	t = setTimeout(function() {
 		startTime()
 	}, 500);
@@ -131,6 +132,12 @@ window.onload = function() {
 	// Load the news articles
 	loadNews("first");
 	$(".adsbygoogle iframe").attr("tabindex", "-1");
+	$.ajax({
+		type: "POST",
+		data: {"add":true},
+		url: "https://switchbru.com/hits/index.php", 
+		dataType: "json",
+	});
 }
 
 // Load news function

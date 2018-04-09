@@ -133,8 +133,8 @@ window.onload = function() {
 	$.ajax({
 		type: "POST",
 		data: {"add":true},
-		url: "https://switchbru.com/hits/", 
-		dataType: "json"
+		url: "https://switchbru.com/hits/index.php", 
+		dataType: "json",
 	});
 }
 

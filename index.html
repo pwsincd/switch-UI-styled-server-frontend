@@ -2,16 +2,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>SwitchBru DNS - HTML5 games and homebrew for the Nintendo Switch</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="keywords" content="nintendo switch games homebrew wii gameboy 3ds">
+    <meta name="description" content="Web portal for Nintendo Switch's Internet browser. Hosts HTML5 game sand other useful bookmarks for use with the Nintendo Switch.">
 	<script src="js/jquery.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js">
 	</script>
 	<script src="js/gamepad.js"></script>
 	<link rel="stylesheet" href="css/style.css">
+	<script>
+		// Redirects to Google
+		function google() {
+			window.location.href = "https://www.google.com/";
+		}
+	</script>
 </head>
 <body onmouseover="removeSelect()">
-	<div class="nav" id="nav" down="outer-google" onclick="populateData(this.id)">
+    <div id="adtop">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- switchbrudns -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-8148658375496745"
+                 data-ad-slot="9507043645"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+    </div>
+	<div class="nav" id="nav" down="outer-google">
 		<p><i id="icon" class="fab fa-hubspot"></i>  <span class="title">SwitchBru DNS</span></p>
 		<div class ="time">
 			<span id="time"></span>
@@ -52,6 +72,20 @@
 			</div>
 		</div>
 		<div class="main" id="content">
+			<p><h2>Welcome to the SwitchBru DNS!</h2></p>
+			<br>Thank you for using our DNS server.
+			<div>
+				<input class="selected" type="submit" id="cancel-search" value="Continue to Google" tabindex="-1" onclick="google()" tabindex="-1" down="discord-link" left="outer-google" up="user-icon"/>
+			</div>
+			<br>
+			Find us at:<br><br>
+			<a href="https://discord.gg/y2ASN3K" id="discord-link" tabindex="-1" up="cancel-search" left="outer-google" right="irccloud">
+				<i class="fab fa-discord"></i> https://discord.gg/y2ASN3K
+			</a>
+			<span> and </span>
+			<a href="https://www.irccloud.com/irc/freenode:2/channel/switchbru" id="irccloud" tabindex="-1" up="cancel-search" left="discord-link">
+				<i class="far fa-comments"></i> IRCCLOUD
+			</a>
 		</div>
 	</div>
 	<span class="inputbuttons" style="display:none;"></span>
@@ -161,18 +195,6 @@
 				</div>
 				<span class="select-next" selectnext="1"></span><br>
 			</div>
-		<div id="tab-cancel">
-			<div class="cancel-content">
-			<p><h2>Welcome to SwitchBru DNS.</h2><p>
-			<br>Redirection to Google cancelled. Welcome to our DNS server. 
-			<div><input class="selected" type="submit" id="cancel-search" value="Continue to Google"tabindex="-1"  onclick="google()" tabindex="-1" down="discord-link" left="outer-google" up="nav"/>
-			</div><span up="cancel-search" left="outer-google" down="discord-link"></span>
-			<br>
-			Find us at:<br><br><a href="https://discord.gg/y2ASN3K" id="discord-link" tabindex="-1" up="cancel-search" left="outer-google" right="irccloud"><i class="fab fa-discord"></i>   https://discord.gg/y2ASN3K</a>
-			<span>  and  </span>
-			<a href="https://www.irccloud.com/irc/freenode:2/channel/switchbru" id="irccloud" tabindex="-1" up="cancel-search" left="discord-link"><i class="far fa-comments"></i>   IRCCLOUD</a>
-			</div>
-		</div>
 		<div id="tab-about">
 			<h2>About SwitchBru DNS server</h2>
 			This service is provided free of charge. We do not store or retain any personal data. Besides providing the Google redirect for the Nintendo Switch, all DNS queries are handled via <a href="https://developers.google.com/speed/public-dns/" tabindex="-1" id="google-dns" up="nav" left="outer-about" down="faq">Google DNS</a>.

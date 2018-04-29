@@ -246,7 +246,7 @@ function showNews(newsID) {
 					var i = $b.text();
 					if($b.attr("url")) {
 						var url = $b.attr("url");
-						var code = '<input type="submit" id="news-button" value="'+i+'" onclick="window.href=\''+url+'\'" tabindex="-1" up="back-button" left="outer-news" down="like">';
+						var code = '<input type="submit" id="news-button" value="'+i+'" onclick="location.href=\''+url+'\'" tabindex="-1" up="back-button" left="outer-news" down="like">';
 						$(".news-text").append(code);
 						$("#back-button").attr("down", "news-button");
 						$("#like, #dislike").attr("up", "news-button");

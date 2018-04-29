@@ -115,8 +115,6 @@ hr {
 	z-index: 10;
 	width:95%;
 	height: 100px;
-	padding-left:5%;
-	padding-right:5%;
 	background-color: var(--main-color);
 	font-size: 1.9em;
 	cursor: pointer;

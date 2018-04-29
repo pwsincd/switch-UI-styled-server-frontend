@@ -12,10 +12,6 @@ var change = true;
 var counting = true;
 var XClosed = false;
 
-// Starting html content
-var intro = '<div class="cancel-content"><p><h2>Welcome to SwitchBru DNS.</h2><p><br>Redirecting to <a id="google-link" href="https://www.google.com/webhp?nomo=1&hl=en" tabindex="-1" down="cancel" up="nav" left="outer-google">Google</a> in <span id="count">10</span> seconds. <div><input type="submit" class="selected" id="cancel" tabindex="-1" up="google-link" left="outer-google" value="Cancel Redirection" onclick="populateData(this.id)" /></div></div>';
-$("#content").html(intro);
-
 // Variables for the news page
 // Ready for no news to be loaded
 var newsBody = 'Sorry, no news to show <i class="far fa-frown"></i><br><br><small>[<a href="#" onclick="loadNews(\'refresh\')" id="refresh" tabindex="-1" left="outer-news">refresh</a>]</small><span class="select-next" selectnext="refresh"></span>';
@@ -49,9 +45,6 @@ function populateData(event){
 			$(".title").html("Useful Links");
 			selected = "outer-links";
 			break;
-		case 'cancel': // After cancelling redirection
-			selected = "outer-google";
-			break;
 		case 'about': // About tab
 			$(".title").html("About");
 			selected = "outer-about";
@@ -80,7 +73,7 @@ function populateData(event){
 		change = true;
 	}
 	// Sidebar highlighting
-	if(event !== "cancel" || event !== "about") {
+	if(event !== "about") {
 		$(".inner").removeClass("inner-active");
 		$("#"+event).addClass("inner-active");
 	}
@@ -113,22 +106,7 @@ function startTime() {
 
 startTime();
 
-window.onload = function() {
-	// Redirection countdown
-	(function(){
-		var counter = 10;
-		setInterval(function() {
-			counter--;
-			if (counter >= 0 && $("#count").length) {
-				$("#count").html(counter);
-			}
-			if (counter === 0 && $("#count").length && counting) {
-				clearInterval(counter);
-				window.location.href = "https://www.google.com/webhp?nomo=1&hl=en";
-			}   
-		}, 1000);
-	})();
-	
+window.onload = function() {	
 	// Load the news articles
 	loadNews("first");
 	$(".adsbygoogle iframe").attr("tabindex", "-1");
@@ -368,7 +346,7 @@ gamepad.bind(Gamepad.Event.TICK, function (gamepads) {
 	var newSelected = $(".selected").attr("id");
 	$(".next").attr("up", newSelected).attr("down", newSelected).attr("left", newSelected).attr("right", newSelected);
 	if(cursor) {
-		if(!$(".next.selected").length && !$("#cancel").length && !$("#cancel-search").length) {
+		if(!$(".next.selected").length && !$("#cancel-search").length) {
 			$(".selected").removeClass("selected");
 		}
 		$(".next").addClass("selected");

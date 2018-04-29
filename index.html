@@ -75,11 +75,12 @@
 			<p><h2>Welcome to the SwitchBru DNS!</h2></p>
 			<br>Thank you for using our DNS server.
 			<div>
-				<input class="selected" type="submit" id="cancel-search" value="Continue to Google" tabindex="-1" onclick="google()" tabindex="-1" down="discord-link" left="outer-google" up="user-icon"/>
+				<input class="selected" type="submit" id="cancel-search" value="Continue to Google" tabindex="-1" onclick="google()" tabindex="-1" down="beta-link" left="outer-google" up="user-icon"/>
 			</div>
 			<br>
+			<div class="beta"><div class="new">New!</div> There is a beta test for the v4.0.0 update now available. Please click <a id="beta-link" href="https://dns.switchbru.com" tabindex="-1" up="cancel-search" left="outer-google" down="discord-link">here</a> to try it.</div><br><br>
 			Find us at:<br><br>
-			<a href="https://discord.gg/y2ASN3K" id="discord-link" tabindex="-1" up="cancel-search" left="outer-google" right="irccloud">
+			<a href="https://discord.gg/y2ASN3K" id="discord-link" tabindex="-1" up="beta-link" left="outer-google" right="irccloud">
 				<i class="fab fa-discord"></i> https://discord.gg/y2ASN3K
 			</a>
 			<span> and </span>
@@ -201,9 +202,9 @@
 			<br><br>
 			We are hosting this service as we believe that those of us that purchased an Internet-capable Switch should have the right to browse the web! We hope that one day Nintendo adds an easily accessible web browser to the console.
 			<br><br>
-			This server <b>does not currently block firmware updates</b>. If you are looking to block updates, you should use the <a href="https://reswitched.tech/info/faq" tabindex="-1" id="faq" up="google-dns" left="outer-about">ReSwitched DNS</a>, or stay offline.
+			This server <b>does not currently block firmware updates</b>. If you are looking to block updates, you should use the <a href="https://reswitched.tech/info/faq" tabindex="-1" id="faq" up="google-dns" left="outer-about" down="secret-update">ReSwitched DNS</a>, or stay offline.
 			<br><br><hr />
-			<small>v3.0.1 &ndash; created by vgmoose and designed by pwsincd, with controller support by Ep8Script</small><span class="select-next" selectnext="google-dns"></span>
+			<small><a href="https://switchbru.com/dns/update/" id="secret-update" tabindex="-1" left="outer-about" up="faq">v</a>3.0.1 &ndash; created by vgmoose and designed by pwsincd, with controller support by Ep8Script</small><span class="select-next" selectnext="google-dns"></span>
 		</div>
 	</div>
 	<script src="js/dns.js"></script>

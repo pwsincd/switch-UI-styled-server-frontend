@@ -642,7 +642,7 @@ function linkScroll() { // Controls scrolling on the tabs where necessary
 			scrollTop:  $("#content").scrollTop() - $("#content").offset().top + $("#content h3#wont-play").offset().top
 		}, 200); 
 	}
-	else if(($("#news-button").length && sID == "news-button") || !$("#news-button").length && sID == "like")) {
+	else if(($("#news-button").length && sID == "news-button") || (!$("#news-button").length && sID == "like")) {
 		$("#content").animate({
 			scrollTop:  $("#content").scrollTop() - $("#content").offset().top + $("#content #news-article hr").offset().top
 		}, 6000); 

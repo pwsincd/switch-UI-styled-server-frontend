@@ -127,30 +127,29 @@ function getUser() {
 				errors = data.errors;
 				disableAds = data.disable_ads;
 			}
-			// Change the look of the page
-			if(theme == 0) { // If using light theme
-				$("body").attr("class", "light");
-			}
-			else if(theme == 2) { // If using a custom theme
-				$("body").attr("class", "custom");
-			}
-			if(display == 1) { // If display is inverted
-				$("html").addClass("invert");
-			}
-			else if(display == 2) { // If display is greyscale
-				$("html").addClass("greyscale");
-			}
-			if(!signedIn && !hasCustomTheme) { // If they didn't just sign in
-				setTimeout(function() {
-					// Wait 600ms then fade the main page in
+			$(document).ready(function() {
+				// Change the look of the page
+				if(theme == 0) { // If using light theme
+					$("body").attr("class", "light");
+				}
+				else if(theme == 2) { // If using a custom theme
+					$("body").attr("class", "custom");
+				}
+				if(display == 1) { // If display is inverted
+					$("html").addClass("invert");
+				}
+				else if(display == 2) { // If display is greyscale
+					$("html").addClass("greyscale");
+				}
+				if(!signedIn && !hasCustomTheme) { // If they didn't just sign in
 					fadeInStart(data);
-				}, 600);
-			}
-			else {
-				setTimeout(function() {
-					getNotifications();
-				}, 3000);
-			}
+				}
+				else {
+					setTimeout(function() {
+						getNotifications();
+					}, 3000);
+				}
+			});
 		},
 		error: function() {
 			// If there was an error, just do these anyway

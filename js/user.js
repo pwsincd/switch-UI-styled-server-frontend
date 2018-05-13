@@ -53,22 +53,26 @@ function getUser() {
 					hasCustomTheme = data.custom_theme.hasTheme;
 					// If they just logged into their account
 					if(location.hash == "#SBAL") {
-						// Remove the hash
-						removeHash();
-						// Go to the user page
-						userPage();
-						// Confirm that the user just signed in
-						signedIn = true;
+						$(document).ready(function() {
+							// Remove the hash
+							removeHash();
+							// Go to the user page
+							userPage();
+							// Confirm that the user just signed in
+							signedIn = true;
+						});
 					}
 					else if(location.hash == "#SBAR") {
-						// Remove the hash
-						removeHash();
-						// Go to the user page
-						userPage();
-						// Confirm that the user just signed in
-						signedIn = true;
-						// Confirm that they are reusing an account
-						reused = true;
+						$(document).ready(function() {
+							// Remove the hash
+							removeHash();
+							// Go to the user page
+							userPage();
+							// Confirm that the user just signed in
+							signedIn = true;
+							// Confirm that they are reusing an account
+							reused = true;
+						});
 					}
 					// If the user has a custom theme
 					if(hasCustomTheme) {

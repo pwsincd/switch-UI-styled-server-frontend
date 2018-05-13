@@ -1,161 +1,232 @@
-<!-- SwitchBru DNS designed by pwsincd, with edits for gamepad support and news by Ep8Script -->
+<!-- SwitchBru DNS designed by pwsincd, with edits for gamepad support and news, users and more by Ep8Script -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>SwitchBru DNS - HTML5 games and homebrew for the Nintendo Switch</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <meta name="keywords" content="nintendo switch games homebrew wii gameboy 3ds">
-    <meta name="description" content="Web portal for Nintendo Switch's Internet browser. Hosts HTML5 game sand other useful bookmarks for use with the Nintendo Switch.">
-	<script src="js/jquery.min.js"></script>
-	<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js">
-	</script>
-	<script src="js/gamepad.js"></script>
-	<link rel="stylesheet" href="css/style.css">
-	<script>
-		// Redirects to Google
-		function google() {
-			window.location.href = "https://www.google.com/";
-		}
-	</script>
-</head>
-<body onmouseover="removeSelect()">
-    <div id="adtop">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- switchbrudns -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:728px;height:90px"
-                 data-ad-client="ca-pub-8148658375496745"
-                 data-ad-slot="9507043645"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-    </div>
-	<div class="nav" id="nav" down="outer-google">
-		<p><i id="icon" class="fab fa-hubspot"></i>  <span class="title">SwitchBru DNS</span></p>
-		<div class ="time">
-			<span id="time"></span>
+	<head>
+		<title>SwitchBru DNS - Internet Browser with HTML5 games and homebrew for the Nintendo Switch</title> 
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="keywords" content="nintendo switch games homebrew wii gameboy 3ds"> 
+		<meta name="description" content="Web portal for Nintendo Switch's Internet browser. Hosts HTML5 games and other useful bookmarks for use with the Nintendo Switch."> 
+		<script src="js/jquery.min.js"></script>
+		<script src="js/font-awesome.js"></script>
+		<script src="js/gamepad.js"></script>
+		<script src="js/pages.js"></script>
+		<script src="js/user.js"></script>
+		<script>
+			// Redirects to Google
+			function google() {
+				window.location.href = "http://www.google.com/webhp?nomo=1&hl=en";
+			}
+		</script>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<!-- Start at dark theme for a smoother fade in -->
+	<body class="dark">
+		<!-- Box for notifications when being shown -->
+		<div id="notification-box" style="display: none;">
+			<div id="notification-icon">
+				<div id="notification-icon-wrapper">
+					<img height="60" id="notification-image">
+				</div>
+			</div>
+			<span class="notification-message"></span>
+			<span class="inner-message"></span>
 		</div>
-		<span class="next" down="outer-google" up="outer-google" left="outer-google" right="outer-google"></span>
-	</div>
-	<div class="container">
-		<!--<hr>-->
-		<div class="menu">
-			<div class="outer" id="outer-google" up="nav" down="outer-url" onclick="touched(this.id)">
-				<div class="inner" id="one" onclick="populateData(this.id)"><i class="fab fa-google"></i>&nbsp;&nbsp;Google	
-				</div>				
-			</div>
-			<div class="outer" id="outer-url" up="outer-google" down="outer-news" onclick="touched(this.id)">
-				<div class="inner" id="two" onclick="populateData(this.id)"><i class="fas fa-keyboard"></i>&nbsp;&nbsp;Enter URL					
-				</div>				
-			</div>
-			<div class="outer" id="outer-news" up="outer-url" down="outer-survey" onclick="touched(this.id)">
-				<div class="inner" id="news" onclick="populateData(this.id)"><i class="far fa-newspaper"></i>&nbsp;&nbsp;News			
-				</div>		
-			</div>
-			<div class="outer" id="outer-survey" up="outer-news" down="outer-yt" onclick="touched(this.id)">
-				<div class="inner" id="three" onclick="populateData(this.id)"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Usage Survey					
-				</div>				
-			</div>
-			<div class="outer" id="outer-yt" up="outer-survey" down="outer-links" onclick="touched(this.id)">
-				<div class="inner" id="four" onclick="populateData(this.id)"><i class="fab fa-youtube-square"></i>&nbsp;&nbsp;YouTube			
-				</div>			
-			</div>
-			<div class="outer" id="outer-links" up="outer-yt" down="outer-about" onclick="touched(this.id)">
-				<div class="inner" id="five" onclick="populateData(this.id)"><i class="fas fa-link"></i>&nbsp;&nbsp;Useful Links			
-				</div>		
-			</div>
-			<hr>
-			<div class="outer" id="outer-about" up="outer-links" onclick="touched(this.id)">
-				<div class="inner" id="about" onclick="populateData(this.id)"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;About			
-				</div>		
-			</div>
-		</div>
-		<div class="main" id="content">
-			<p><h2>Welcome to the SwitchBru DNS!</h2></p>
-			<br>Thank you for using our DNS server.
-			<div>
-				<input class="selected" type="submit" id="cancel-search" value="Continue to Google" tabindex="-1" onclick="google()" tabindex="-1" down="beta-link" left="outer-google" up="user-icon"/>
-			</div>
-			<br>
-			<div class="beta"><div class="new">New!</div> There is a beta test for the v4.0.0 update now available. Please click <a id="beta-link" href="https://dns.switchbru.com" tabindex="-1" up="cancel-search" left="outer-google" down="discord-link">here</a> to try it.</div><br><br>
-			Find us at:<br><br>
-			<a href="https://discord.gg/y2ASN3K" id="discord-link" tabindex="-1" up="beta-link" left="outer-google" right="irccloud">
-				<i class="fab fa-discord"></i> https://discord.gg/y2ASN3K
-			</a>
-			<span> and </span>
-			<a href="https://www.irccloud.com/irc/freenode:2/channel/switchbru" id="irccloud" tabindex="-1" up="cancel-search" left="discord-link">
-				<i class="far fa-comments"></i> IRCCLOUD
-			</a>
-		</div>
-	</div>
-	<span class="inputbuttons" style="display:none;"></span>
-	
-	<!-- different tabs are located in the HTML, to allow search indexing. toggled via JS in dns.js -->
-	<div id="sections" style="display: none;">
-		<div id="tab-one">
-			<div class="google"><img class="google-rs" src="images/Google.png">
-				<br><br>
-				<form method="get" action="http://www.google.com/search">
-					<div style="googlesearch">
-						<input type="text" id="search-google" name="q" size="25" maxlength="255" value="" placeholder="Enter your search query..." tabindex="-1" up="nav" left="outer-google" down="google-button" onclick="touched(this.id)" />
-						<input type="submit" id="google-button" tabindex="-1" up="search-google" left="outer-google" value="Google Search" /><span class="select-next" selectnext="search-google">
-						</span>
+		<!-- Transparent overlay -->
+		<div id="overlay" style="display: none;">
+			<div id="user-popup">
+				<div class="left">
+					<div id="popup-user">
+						<div id="popup-user-wrap">
+							<div class="best-icon" style="display: none;">
+								<i class="fas fa-star best"></i>
+							</div>
+							<img id="popup-user-image">
+						</div>
 					</div>
-				</form>
+					<div class="popup-username"></div>
+					<div id="show-buttons">
+					</div>
+				</div>
 			</div>
 		</div>
-		<div id="tab-two">
-			<div class="google"><img class="webkit" src="images/webkit.png">
-				<br><br>
-				<form id="form" onsubmit="return false;">
-					<div style="googlesearch">
-						<input type="url" name="q" size="25" maxlength="255" id="url" value="" placeholder="Enter your URL..." tabindex="-1" up="nav" left="outer-url" down="load-page" onclick="touched(this.id)"/>
-						<input type="submit" id="load-page" value="Load Page" onclick="loadurl(url)" tabindex="-1" up="url" left="outer-url" />
-					</form><span class="select-next" selectnext="url"></span>
+		<!-- Main Page -->
+		<div class="active-page" id="main-page" style="display: none;">
+			<div id="adtop">
+				<noscript>
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- switchbrudnsresponsive -->
+					<ins class="adsbygoogle"
+						 style="display:block"
+						 data-ad-client="ca-pub-8148658375496745"
+						 data-ad-slot="3203959717"
+						 data-ad-format="auto"></ins>
+					<script>
+					$(document).ready(function() {
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						$("#nav, #user-text").addClass("ad");
+					});
+					</script>
+				</noscript>
+				<!-- draw the ad using document.write, fetching the ad-enabled
+					config from the synchronous getUser() call in user.js.
+					Since the page is still rendering, this will not
+					create any false ad requests if the ad is disabled -->
+				<script>
+					if (typeof disableAds === 'undefined' || disableAds == 0)
+						document.write($("noscript")[0].textContent);
+				</script>
+			</div>
+			<div class="nav">
+				<p id="nav" down="outer-google" right="user-icon" onclick="populateData(this.id)">
+					<i id="icon" class="fab fa-hubspot"></i>  <span class="title">SwitchBru DNS</span>
+				</p>
+				<div class="no-user" id="user-icon" left="nav" onclick="selectUser()">
+					<div id="friends-online"><span></span></div>
+					<div class="no-user" id="icon-wrapper" style="">
+						+
 					</div>
+				</div>
+				<div id="user-text" style="display: none;">New User</div>
+				<div class="time">
+					<span id="time"></span>
+				</div>
+				<span class="next" down="outer-google" up="outer-google" left="outer-google" right="outer-google"></span>
+			</div>
+			<div class="container">
+				<div class="menu">
+					<div class="outer" id="outer-google" up="nav" down="outer-url" onclick="touched(this.id)">
+						<div class="inner" id="one" onclick="populateData(this.id)"><i class="fab fa-google"></i>&nbsp;&nbsp;Google
+						</div>
+					</div>
+					<div class="outer" id="outer-url" up="outer-google" down="outer-news" onclick="touched(this.id)">
+						<div class="inner" id="two" onclick="populateData(this.id)"><i class="fas fa-keyboard"></i>&nbsp;&nbsp;Enter URL
+						</div>
+					</div>
+					<div class="outer" id="outer-news" up="outer-url" down="outer-survey" onclick="touched(this.id)">
+						<div class="inner" id="news" onclick="populateData(this.id)"><i class="far fa-newspaper"></i>&nbsp;&nbsp;News
+						</div>
+					</div>
+					<div class="outer" id="outer-survey" up="outer-news" down="outer-yt" onclick="touched(this.id)">
+						<div class="inner" id="three" onclick="populateData(this.id)"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Feedback
+						</div>
+					</div>
+					<div class="outer" id="outer-yt" up="outer-survey" down="outer-links" onclick="touched(this.id)">
+						<div class="inner" id="four" onclick="populateData(this.id)"><i class="fab fa-youtube-square"></i>&nbsp;&nbsp;YouTube
+						</div>
+					</div>
+					<div class="outer" id="outer-links" up="outer-yt" down="outer-settings" onclick="touched(this.id)">
+						<div class="inner" id="five" onclick="populateData(this.id)"><i class="fas fa-link"></i>&nbsp;&nbsp;Useful Links
+						</div>
+					</div>
+					<hr>
+					<div class="outer" id="outer-settings" up="outer-links" onclick="touched(this.id)">
+						<div class="inner" id="settings" onclick="populateData(this.id)"><i class="fas fa-cog"></i>&nbsp;&nbsp;Settings
+						</div>
+					</div>
+				</div>
+				<div class="main" id="content">
+					<p><h2>Welcome to the SwitchBru DNS!</h2></p>
+					<br>Thank you for using our DNS server<span class="welcome-user"></span>.
+					<div>
+						<input class="selected" type="submit" id="cancel-search" value="Continue to Google" tabindex="-1" onclick="google()" tabindex="-1" down="discord-link" left="outer-google" up="user-icon"/>
+					</div>
+					<br>
+					Find us at:<br><br>
+					<a href="https://discord.gg/y2ASN3K" id="discord-link" tabindex="-1" up="cancel-search" left="outer-google" right="irccloud">
+						<i class="fab fa-discord"></i> https://discord.gg/y2ASN3K
+					</a>
+					<span> and </span>
+					<a href="https://www.irccloud.com/irc/freenode:2/channel/switchbru" id="irccloud" tabindex="-1" up="cancel-search" left="discord-link">
+						<i class="far fa-comments"></i> IRCCLOUD
+					</a>
+				</div>
+			</div><span class="inputbuttons" style="display:none;"></span>
+		</div>
+		
+		<!-- User Page, Settings, etc. -->
+		<div id="second-page" style="display: none;">
+		</div>
+		
+		<!-- Different tabs are located in the HTML, to allow search indexing. Toggled via JS in dns.js -->
+		<div id="sections" style="display: none;">
+			<div id="tab-one">
+				<div class="google"><img class="google-rs" src="images/Google.png">
+					<br><br>
+					<form method="get" action="https://www.google.com/search">
+						<div style="googlesearch">
+							<input type="text" id="search-google" name="q" size="25" maxlength="255" value="" placeholder="Enter your search query..." tabindex="-1" up="user-icon" left="outer-google" down="google-button" onclick="touched(this.id)" />
+							<input type="submit" id="google-button" tabindex="-1" up="search-google" left="outer-google" value="Google Search" />
+						</div>
+					</form><span class="select-next" selectnext="search-google"></span>
+				</div>
+			</div>
+			<div id="tab-two">
+				<div class="google"><img class="webkit" src="images/webkit.png">
+					<br><br>
+					<form id="form" onsubmit="return false;">
+						<div style="googlesearch">
+							<input type="url" name="q" size="25" maxlength="255" id="url" value="" placeholder="Enter your URL..." tabindex="-1" up="user-icon" left="outer-url" down="load-page" onclick="touched(this.id)"/>
+							<input type="submit" id="load-page" value="Load Page" onclick="loadurl(url)" tabindex="-1" up="url" left="outer-url" />
+						</div>
+					</form>
+					<br>
+					Enter a URL above and hit "Load Page".
+				<span class="select-next" selectnext="url"></span></div>
+			</div>
+			<div id="tab-three">
+				<div><h2><i class="far fa-question-circle"></i> SwitchBru DNS Server Feedback</h2><br>
+				This is a survey to collect information on the usage of the SwitchBru DNS server (45.55.142.122).<br><br>
+				We have made some design changes recently, and would like to better understand how people use the DNS service.<br><br>
+				For usage information, please visit the <a id="visit-website" href="http://switchbru.com/dns/" tabindex="-1" up="user-icon" left="outer-survey" down="survey">SwitchBru DNS website</a>.<br><br>
+				<form id="form" action="https://docs.google.com/forms/d/e/1FAIpQLSewt6insjUEzg0dWV--n5OlDodk2Zflr3pbd4XWs6hEuZTzNg/viewform">
+					<div style="googlesearch">
+						<input type="submit" id="survey" value="Take our survey" onclick="survey()" tabindex="-1" up="visit-website" left="outer-survey"/>
+					</div>
+				</form><span class="select-next" selectnext="survey"></span>
+				</div>
+			</div>
+			<div id="tab-four">
+				<div class="youtube"><img class="ytimg" src="images/SwitchTube_light.png"><div><span id="first-para">Thanks to the developer Ep8Script, there is a way to watch YouTube videos on your Switch! There is a thread about it <a href="https://gbatemp.net/threads/tool-website-for-watching-most-youtube-videos-on-the-switch.494796/" tabindex="-1" id="gbatemp-thread" left="outer-yt" up="user-icon" down="instructions">here</a> on GBAtemp.</span>
+				<br><br>
+				<h3 id="instructions" left="outer-yt" up="gbatemp-thread" down="in-order">Instructions</h3>
+				<font color="red">You cannot watch videos using the DNS trick.</font> Nintendo has blocked video playback in the wifi login applet (which you are currently using).<br><br>
+				<span id="in-order" left="outer-yt" up="instructions" down="in-order2"></span><span id="in-order2" left="outer-yt" up="in-order" down="user-settings"></span>In order to watch videos, you must use the Share Applet. To access this applet and use SwitchTube, do the following:<br>
+				<ol>
+				<li>Go to your Wifi settings and turn OFF this custom DNS server (this will prevent you from accessing this browser).</li>
+				<li><span id="user-settings" left="outer-yt" up="in-order2" down="sb-fb"></span>Go to the Switch's User settings, and try to link a Facebook account for social media. If you have already linked a Facebook account to this user, you must unlink it first.</li>
+				<li>A login page will come up, go to the bottom and click one of the links on the bottom to go to Facebook for real.</li>
+				<li class="skip"><span id="browse-fb"></span><i>You can now browse Facebook, but can't access external websites. That's okay.</i></li>
+				<li>On Facebook, search for "<b>SwitchBru</b>" to find our <a href="https://www.facebook.com/SwitchBru/" tabindex="-1" id="sb-fb" left="outer-yt" up="user-settings" down="search-for">Facebook page</a> (you might have to sign in).</li>
+				<li>In the post at the top of the profile page, click the Google Sites URL for watching videos!</li>
+				<li><span id="search-for" left="outer-yt" up="sb-fb" down="ep8-twitter"></span>Search for a YouTube video you want to play, then click on the video and it should play.</li>
+				<li>If you want to go back to the rest of the internet, turn back on the custom DNS in Internet Settings.</li>
+				</ol>
+				<h3 id="how">How does it work?</h3>
+				The Switch has a whitelist of websites that it's allowed to visit in the Share applet. This is more restricted than the Login applet, but it's allowed to play videos. Google.com is one of those websites, so the Google Sites link allows the Switch to play a video that is located on the Facebook page.<br>
 				<br>
-				Enter a URL above and hit "Load Page".
+				If you need help troubleshooting or setting it up you can post in the above GBATemp thread, contact us, or contact <a href="https://twitter.com/Ep8Script" tabindex="-1" id="ep8-twitter" left="outer-yt" up="search-for" down="st-link">@Ep8Script</a> on Twitter.
+				<br><br>
+				<h3 id="wont-play">Videos still won't play on the website</h3>
+				Make sure you are accessing the page <b>through the share applet</b> in User settings, when you go to link a Facebook account. You have to search for the post to click on the link for it to work. Doing it through this page using the DNS trick will result in the video not being able to play. <b>This is a technical limitation!</b> Blame Nintendo!<br><br>
+				Using our page isn't necessary, but you do need a way to get this link to the "Share" applet somehow: <a href="https://sites.google.com/site/ytnintendoswitch/" tabindex="-1" id="st-link" left="outer-yt" up="ep8-twitter">https://sites.google.com/site/ytnintendoswitch/</a>
+				<br><br><br></div><span class="select-next" selectnext="gbatemp-thread"></span></div>
 			</div>
-		</div>
-		<div id="tab-three">
-			<div><h2><i class="far fa-question-circle"></i> SwitchBru DNS Server Feedback</h2><br>
-			This is a survey to collect information on the usage of the SwitchBru DNS server (45.55.142.122).<br><br>
-			We have made some design changes recently, and would like to better understand how people use the DNS service.<br><br>
-			For usage information, please visit the <a id="visit-website" href="http://switchbru.com/dns/" tabindex="-1" up="nav" left="outer-survey" down="survey">SwitchBru DNS website</a>.<br><br>
-			<form id="form" action="https://docs.google.com/forms/d/e/1FAIpQLSewt6insjUEzg0dWV--n5OlDodk2Zflr3pbd4XWs6hEuZTzNg/viewform">
-			<div style="googlesearch">
-			<input type="submit" id="survey" value="Take our survey" onclick="survey()" tabindex="-1" up="visit-website" left="outer-survey"/>
-				</form><span class="select-next" selectnext="survey"></span></div></div>
-		</div>
-		<div id="tab-four">
-			<div class="youtube"><img class="ytimg" src="images/SwitchTube.png"><div><span id="first-para">Thanks to Ep8Script on GBATemp, there is now a way to watch YouTube videos on your Switch! There is a thread about it <a href="https://gbatemp.net/threads/tool-website-for-watching-most-youtube-videos-on-the-switch.494796/" tabindex="-1" id="gbatemp-thread" left="outer-yt" up="nav" down="instructions">here</a>.</span>
-			<br><br>
-			<h3 id="instructions" left="outer-yt" up="gbatemp-thread" down="in-order">Instructions</h3>
-			<font color="red">You cannot watch videos using the DNS trick.</font> Nintendo has blocked video playback in the wifi login applet.<br><br>
-			<span id="in-order" left="outer-yt" up="instructions" down="in-order2"></span><span id="in-order2" left="outer-yt" up="in-order" down="user-settings"></span>In order to watch videos, you must use the Share applet. To access this applet, do the following:<br>
-			<ol>
-			<li>Go to your Wifi settings and turn OFF this custom DNS server (this will prevent you from accessing this browser).</li>
-			<li><span id="user-settings" left="outer-yt" up="in-order2" down="sb-fb"></span>Go to the Switch's User settings, and try to link a Facebook account for social media. If you have already linked a Facebook account to this user, you must unlink it first.</li>
-			<li>A login page will come up, go to the bottom and click one of the links on the bottom to go to Facebook for real.</li>
-			<li class="skip"><span id="browse-fb"></span><i>You can now browse Facebook, but can't access external websites. That's okay.</i></li>
-			<li>On Facebook, search for "<b>SwitchBru</b>" to find our <a href="https://www.facebook.com/SwitchBru/" tabindex="-1" id="sb-fb" left="outer-yt" up="user-settings" down="search-for">Facebook page</a> (you might have to sign in).</li>
-			<li>In the post at the top of the profile page, click the Google Sites URL for watching videos!</li>
-			<li><span id="search-for" left="outer-yt" up="sb-fb" down="ep8-twitter"></span>Search for a YouTube video you want to play, then click on the video and it should play.</li>
-			<li>If you want to go back to the rest of the internet, turn back on the custom DNS in Internet Settings.</li>
-			</ol>
-			<h3 id="how">How does it work?</h3>
-			The Switch has a whitelist of websites that it's allowed to visit in the Share applet. This is more restricted than the Login applet, but it's allowed to play videos. Google.com is one of those websites, so the Google Sites link allows the Switch to play a video that is located on the Facebook page.<br>
-			<br>
-			If you need help troubleshooting or setting it up you can post in the above GBATemp thread, contact us, or contact <a href="https://twitter.com/Ep8Script" tabindex="-1" id="ep8-twitter" left="outer-yt" up="search-for" down="st-link">@Ep8Script</a> on Twitter.
-			<br><br>
-			<h3 id="wont-play">Videos still won't play on the website</h3>
-			Make sure you are accessing the page <b>through the share applet</b> in User settings, when you go to link a Facebook account. You have to search for the post to click on the link for it to work. Doing it through this page using the DNS trick will result in the video not being able to play. <b>This is a technical limitation!</b> Blame Nintendo!<br><br>
-			Using our page isn't necessary, but you do need a way to get this link to the "Share" applet somehow: <a href="https://sites.google.com/site/ytnintendoswitch/" tabindex="-1" id="st-link" left="outer-yt" up="ep8-twitter">https://sites.google.com/site/ytnintendoswitch/</a>
-			<br><br><br></div><span class="select-next" selectnext="gbatemp-thread"></span></div>
-		</div>
-		<div id="tab-five">
-				<h3>Switch-related</h3>
+			<div id="tab-five">
+				<!-- HTML for custom links -->
+				<h3 class="custom-links">
+					Custom Links 
+					<small>
+						<span class="edit-link-button">[<a id="custom-edit">Edit</a>]</span> 
+						<span class="edit-link-buttons" style="display: none;">[<a class="disabled" id="change-link" down="custom-1" left="outer-links" right="delete-links">Change</a> | 
+							<a class="disabled" id="delete-links" down="custom-2" left="change-link" right="save-links">Delete</a> | 
+							<a id="save-links" down="custom-3">Save</a>]
+						</span>
+					</small>
+				</h3>
+				<div class="flex"></div>
+				<br>
+				<h3>Switch-related Links</h3>
 				<div class="flex">
 					<div class="link"><a href="https://realdekkia.github.io/switch-tetris/" tabindex="-1">Play Tetris</a></div>
 					<div class="link"><a href="https://eshop-prices.com/" tabindex="-1">eShop Prices</a></div>
@@ -187,25 +258,19 @@
 					<div class="link"><a href="https://youtube.com" tabindex="-1">YouTube</a></div>
 					<div class="link"><a href="https://github.com" tabindex="-1">GitHub</a></div>
 					<div class="link"><a href="https://deviantart.com" tabindex="-1">DeviantArt</a></div>
-					<div class="link"><a href="https://wattpad.com" tabindex="-1">WattPad</a></div>
-					<div class="link"><a href="https://gdax.com" tabindex="-1">GDAX</a></div>
+					<div class="link"><a href="http://slither.io" tabindex="-1">slither.io</a></div>
+					<div class="link"><a href="https://itch.io" tabindex="-1">itch.io</a></div>
 					<div class="link"><a href="https://instagram.com" tabindex="-1">Instagram</a></div>
 					<div class="link"><a href="https://duckduckgo.com" tabindex="-1">DuckDuckGo</a></div>
 					<div class="link"><a href="https://yahoo.com" tabindex="-1">Yahoo</a></div>
 					<div class="link"><a href="https://bing.com" tabindex="-1">Bing</a></div>
-				</div>
-				<span class="select-next" selectnext="1"></span><br>
+				</div><span class="select-next" selectnext="custom-1"></span>
 			</div>
-		<div id="tab-about">
-			<h2>About SwitchBru DNS server</h2>
-			This service is provided free of charge. We do not store or retain any personal data. Besides providing the Google redirect for the Nintendo Switch, all DNS queries are handled via <a href="https://developers.google.com/speed/public-dns/" tabindex="-1" id="google-dns" up="nav" left="outer-about">Google DNS</a>.
-			<br><br>
-			We are hosting this service as we believe that those of us that purchased an Internet-capable Switch should have the right to browse the web! We hope that one day Nintendo adds an easily accessible web browser to the console.
-			<br>
-			<hr>
-			<small>v3.1.1 &ndash; created by vgmoose and designed by pwsincd, with controller support and news by Ep8Script</small><span class="select-next" selectnext="google-dns"></span>
+			<div id="tab-settings">
+				<br><input type="submit" id="open-settings" value="Open Settings" onclick="openSettings()" tabindex="-1" up="user-icon" left="outer-settings"/><span class="select-next" selectnext="open-settings"></span>
+			</div>
 		</div>
-	</div>
-	<script src="js/dns.js"></script>
-</body>
+		<script src="js/settings.js"></script>
+		<script src="js/dns.js"></script>
+	</body>
 </html>

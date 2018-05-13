@@ -53,26 +53,14 @@ function getUser() {
 					hasCustomTheme = data.custom_theme.hasTheme;
 					// If they just logged into their account
 					if(location.hash == "#SBAL") {
-						$(document).ready(function() {
-							// Remove the hash
-							removeHash();
-							// Go to the user page
-							userPage();
-							// Confirm that the user just signed in
-							signedIn = true;
-						});
+						// Confirm that the user just signed in
+						signedIn = true;
 					}
 					else if(location.hash == "#SBAR") {
-						$(document).ready(function() {
-							// Remove the hash
-							removeHash();
-							// Go to the user page
-							userPage();
-							// Confirm that the user just signed in
-							signedIn = true;
-							// Confirm that they are reusing an account
-							reused = true;
-						});
+						// Confirm that the user just signed in
+						signedIn = true;
+						// Confirm that they are reusing an account
+						reused = true;
 					}
 					// If the user has a custom theme
 					if(hasCustomTheme) {
@@ -146,7 +134,19 @@ function getUser() {
 					$("html").addClass("greyscale");
 				}
 				if(!signedIn && !hasCustomTheme) { // If they didn't just sign in
-					fadeInStart(data);
+					// Fade in after 600ms
+					setTimeout(function() {
+						fadeInStart(data);
+					}, 600);
+				}
+				else if(signedIn) {
+					// Remove the hash
+					removeHash();
+					// Go to the user page
+					userPage();
+					setTimeout(function() {
+						getNotifications();
+					}, 3000);
 				}
 				else {
 					setTimeout(function() {

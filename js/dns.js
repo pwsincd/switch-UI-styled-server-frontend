@@ -1007,7 +1007,7 @@ function linkScroll() {
 	else if(sID == "patreon") {
 		$("#settingspage-content").animate({
 			scrollTop: $("#settingspage-content").scrollTop() - $("#settingspage-content").offset().top + $("#patreon").offset().top
-		}, t); 
+		}, t+200); 
 	}
 	else if(sID == "like" || sID == "back-button" || sID == "dislike" || sID == "news-button") {
 		$("#content").stop();
